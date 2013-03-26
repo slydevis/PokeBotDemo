@@ -12,7 +12,7 @@ public class JudgeBot implements Bot {
      * List of smartcell the questions go through to
      * find an answer.
      */
-    final List<SmartCell> smartCells = Lists.newArrayList();
+    private final List<SmartCell> smartCells = Lists.newArrayList();
 
     /**
      * Ask something to Bot, it will respond to you.
