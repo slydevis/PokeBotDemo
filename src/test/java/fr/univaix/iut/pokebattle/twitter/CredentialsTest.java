@@ -1,5 +1,6 @@
 package fr.univaix.iut.pokebattle.twitter;
 
+import fr.univaix.iut.pokebattle.tuse.Credentials;
 import org.junit.Test;
 
 import java.io.InputStream;
