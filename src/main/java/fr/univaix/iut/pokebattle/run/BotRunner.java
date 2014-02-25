@@ -13,7 +13,7 @@ public class BotRunner {
 
     }
 
-    static public void runBot(Bot bot, String credentialsFileName) throws TUSEException {
+    public static void runBot(Bot bot, String credentialsFileName) throws TUSEException {
         try (InputStream inputStream = getResourceAsStream(credentialsFileName)) {
             Credentials credentials = Credentials.loadCredentials(inputStream);
             TwitterBot twitterBot = new TwitterBot(bot, credentials);

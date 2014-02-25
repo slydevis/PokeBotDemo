@@ -12,7 +12,7 @@ import twitter4j.TwitterException;
 import twitter4j.UserStreamListener;
 
 public class TwitterUserStreamEasyBuilder {
-    private final static Logger logger = LoggerFactory.getLogger(TwitterBot.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TwitterBot.class);
     private Credentials credentials;
     private Twitter twitter;
     private Bot bot;
@@ -27,11 +27,11 @@ public class TwitterUserStreamEasyBuilder {
         UserStreamListener listener = new UserStreamAdapter() {
             @Override
             public void onStatus(Status status) {
-                logger.info("TwitterUserStreamEasyExample.onStatus()");
+                LOGGER.info("TwitterUserStreamEasyExample.onStatus()");
                 try {
                     processNewQuestion(status, bot);
                 } catch (TwitterException e) {
-                    e.printStackTrace();
+                    LOGGER.error("Twitter Error", e);
                 }
             }
         };
@@ -40,7 +40,7 @@ public class TwitterUserStreamEasyBuilder {
 
     private void processNewQuestion(Status status, Bot bot) throws TwitterException {
         if (isNotANewQuestion(status)) {
-            logger.info("Ignored status change");
+            LOGGER.info("Ignored status change");
             return;
         }
 
