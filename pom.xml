@@ -114,6 +114,7 @@
                 <version>2.9.1</version>
                 <configuration>
                     <configLocation>config/sun_checks.xml</configLocation>
+                    <configLocation>checkstyle.xml</configLocation>
                 </configuration>
                 <inherited>false</inherited>
                 <reportSets>
