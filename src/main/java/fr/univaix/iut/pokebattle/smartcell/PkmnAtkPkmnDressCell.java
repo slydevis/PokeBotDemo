@@ -47,7 +47,7 @@ public class PkmnAtkPkmnDressCell implements SmartCell {
 				dresscible += Text.charAt(i);
 			}	
 		}
-		return (cible + ' ' + Att + ' ' + NomAtt + '!' + ' ' + dresscible +  
+		return (cible + ' ' + Att + ' ' + NomAtt + '!' + ' ' + "/cc" + ' ' + dresscible +  
 				' ' + '@' + question.getScreenName());
 	}
 	
