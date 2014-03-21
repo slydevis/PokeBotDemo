@@ -19,7 +19,7 @@ public class OwnAskPkmnAttCellTest {
 	@Test
 	public void OwnerAskAtkTest() {
 		assertEquals("@bulbizarre #attack #foudre! @nedseb", 
-				cell.ask(new Tweet("@nedseb", "#attack #foudre @bulbizarre")));
+				cell.ask(new Tweet("nedseb", "#attack #foudre @bulbizarre")));
 	}
 	
 }
