@@ -12,8 +12,8 @@ public class PkmnAtkPkmnDressCellTest {
 	
 	@Test
 	public void testAtk(){
-		assertEquals("@mewtwo #attack #ultralaser! @gantben @nedseb", 
-				cell.ask(new Tweet("nedseb", "#attack #ultralaser @mewtwo @gantben")));
+		assertEquals("@mewtwo #attack #ultralaser! /cc @gantben @nedseb", 
+				cell.ask(new Tweet("nedseb", "#attack #ultralaser @mewtwo /cc @gantben")));
 	}
 	
 }

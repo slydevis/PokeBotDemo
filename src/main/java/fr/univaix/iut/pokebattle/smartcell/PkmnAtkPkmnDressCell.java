@@ -2,7 +2,7 @@ package fr.univaix.iut.pokebattle.smartcell;
 
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
-public class PkmnAtkPkmnDressCell {
+public class PkmnAtkPkmnDressCell implements SmartCell {
 
 	public String decode(Tweet question) {
 		boolean hash = false;
@@ -47,7 +47,7 @@ public class PkmnAtkPkmnDressCell {
 				dresscible += Text.charAt(i);
 			}	
 		}
-		return (cible + ' ' + Att + ' ' + NomAtt + '!' + ' ' + dresscible +  
+		return (cible + ' ' + Att + ' ' + NomAtt + '!' + ' ' + "/cc" + ' ' + dresscible +  
 				' ' + '@' + question.getScreenName());
 	}
 	
