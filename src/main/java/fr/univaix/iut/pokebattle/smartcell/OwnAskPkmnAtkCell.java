@@ -2,7 +2,7 @@ package fr.univaix.iut.pokebattle.smartcell;
 
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
-public class OwnAskPkmnAtkCell {
+public class OwnAskPkmnAtkCell implements SmartCell {
 
 	public String decode(Tweet question) {
 		boolean hashA = false;

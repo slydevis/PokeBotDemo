@@ -32,6 +32,7 @@ public class Pokemon {
 	
     public static final String FIND_BY_TYPE = "findPokemonByType";
     public static final String FIND_ALL = "findAllPokemon";
+    
     @Id
     private String name;
 
