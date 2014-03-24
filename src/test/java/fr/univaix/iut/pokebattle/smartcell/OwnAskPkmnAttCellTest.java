@@ -21,5 +21,10 @@ public class OwnAskPkmnAttCellTest {
 		assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb", 
 				cell.ask(new Tweet("nedseb", "#attack #plaquage @bulbizarre")));
 	}
-	
+
+	@Test
+	public void NotOwnerAskAtkTest() {
+		assertEquals("Fleeex...zZz",
+				cell.ask(new Tweet("nedseb", "attack")));
+	}
 }

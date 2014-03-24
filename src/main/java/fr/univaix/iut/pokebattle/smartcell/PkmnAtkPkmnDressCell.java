@@ -52,7 +52,10 @@ public class PkmnAtkPkmnDressCell implements SmartCell {
 	}
 	
 	public String ask(Tweet question) {
-		return decode(question);
+		if (question.getText().contains("#attack") && question.getText().contains("/cc"))
+			return decode(question);
+		else
+			return "Fleex?...";
 	}
 	
 }
