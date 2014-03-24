@@ -1,5 +1,6 @@
 package fr.univaix.iut.pokebattle.jpa;
 
+import fr.univaix.iut.pokebattle.run.PokemonMain;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -17,6 +18,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Connection;
 import java.util.List;
+import java.util.Map;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -26,14 +28,15 @@ public class DAOPokemonJPATest {
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
-
-    private DAOPokemon dao = new DAOPokemonJPA(entityManager);
-
+    private static DAOPokemon dao;
     @BeforeClass
     public static void initTestFixture() throws Exception {
-        // Get the entity manager for the tests.
-        entityManagerFactory = Persistence.createEntityManagerFactory("pokebattlePU");
-        entityManager = entityManagerFactory.createEntityManager();
+
+        entityManagerFactory = Persistence.createEntityManagerFactory("pokebattlePUTest");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        DAOFactoryJPA.setEntityManager(entityManager);
+
+        dao = DAOFactoryJPA.createDAOPokemon();
 
         Connection connection = ((EntityManagerImpl) (entityManager.getDelegate())).getServerSession().getAccessor().getConnection();
 
@@ -54,6 +57,15 @@ public class DAOPokemonJPATest {
     public void setUp() throws Exception {
         //Clean the data from previous test and insert new data test.
         DatabaseOperation.CLEAN_INSERT.execute(dbUnitConnection, dataset);
+    }
+
+    @Test
+    public void testInsert() throws Exception {
+        Pokemon raichu = new Pokemon("Raichu");
+        raichu.setType1(Type.ELECTRIC);
+        dao.insert(raichu);
+        assertThat(dao.getById("Raichu").getName()).isEqualTo("Raichu");
+        assertThat(dao.getById("Raichu").getType1()).isEqualTo(Type.ELECTRIC);
     }
 
     @Test
@@ -79,15 +91,6 @@ public class DAOPokemonJPATest {
     public void testDelete() throws Exception {
         dao.delete(dao.getById("Pikachu"));
         assertThat(dao.getById("Pikachu")).isNull();
-    }
-
-    @Test
-    public void testInsert() throws Exception {
-        Pokemon raichu = new Pokemon("Raichu");
-        raichu.setType1(Type.ELECTRIC);
-        dao.insert(raichu);
-        assertThat(dao.getById("Raichu").getName()).isEqualTo("Raichu");
-        assertThat(dao.getById("Raichu").getType1()).isEqualTo(Type.ELECTRIC);
     }
 
     @Test

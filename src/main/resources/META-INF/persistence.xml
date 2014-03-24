@@ -6,14 +6,25 @@
     <class>fr.univaix.iut.pokebattle.jpa.Pokemon</class>
 
     <properties>
-        <property name="eclipselink.target-database" value="MySQL" />
-        <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:PokemonDB;create=true" />
-        <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-        <property name="javax.persistence.jdbc.user"  value=""/>
-        <property name="javax.persistence.jdbc.password"  value=""/>
-        <property name="eclipselink.logging.level" value="INFO" />
-        <property name="eclipselink.ddl-generation.output-mode" value="database" />
-        <property name="eclipselink.ddl-generation"  value="create-tables"/>
+        <property name="eclipselink.logging.level" value="INFO"/>
+        <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+        <property name="eclipselink.ddl-generation" value="create-tables"/>
     </properties>
   </persistence-unit>
+
+    <persistence-unit name="pokebattlePUTest" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>fr.univaix.iut.pokebattle.jpa.Pokemon</class>
+        <properties>
+            <property name="eclipselink.target-database" value="Derby" />
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:PokemonDB;create=true" />
+            <property name="javax.persistence.jdbc.user" value="" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="eclipselink.logging.level" value="INFO" />
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+            <property name="eclipselink.ddl-generation"  value="create-tables"/>
+        </properties>
+    </persistence-unit>
+
 </persistence>
