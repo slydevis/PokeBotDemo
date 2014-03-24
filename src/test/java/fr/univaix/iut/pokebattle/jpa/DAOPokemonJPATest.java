@@ -102,5 +102,3 @@ public class DAOPokemonJPATest {
         assertThat(dao.getById("Pikachu").getAttack()).isLessThan(0);
     }
 }
-
-
