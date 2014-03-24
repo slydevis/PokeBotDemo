@@ -7,8 +7,8 @@ public class PkmnFightCell {
 	public String decode(Tweet question) {
 		return "";
 	}
-	
-	
+
+
 	public String ask(Tweet question) {
 		return decode(question);
 	}
