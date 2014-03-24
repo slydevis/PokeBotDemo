@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -24,7 +25,8 @@ public class PokemonMain {
     }
 
     private static Map<String, String> createConfigurationMap() throws URISyntaxException {
-        URI dbUri = new URI("postgres://uxmkwioofjunwk:-_KhHXYpfh8urU46Nu6l3m6NBA@ec2-54-197-241-96.compute-1.amazonaws.com:5432/d946ute9ed9erl");
+        String databaseUrl = System.getenv("DATABASE_URL");
+        URI dbUri = new URI(databaseUrl);
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
         String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
@@ -48,6 +50,29 @@ public class PokemonMain {
             DAOFactoryJPA.setEntityManager(em);
 
             DAOPokemon pokemon = DAOFactoryJPA.createDAOPokemon();
+
+            EntityTransaction tx = em.getTransaction();
+            tx.begin();
+
+            // On insert
+
+            Pokemon pikachu = new Pokemon("Pikachu");
+            pikachu.setType1(Pokemon.Type.ELECTRIC);
+            em.persist(pikachu);
+            em.getTransaction().commit();
+
+            // On recherche et on l'affiche
+
+           // Pokemon pika = em.find(Pokemon.class, "Pikachu");
+           // System.out.println(pika.toString());
+
+            // On delete
+
+            //em.remove(pika);
+           // tx.commit();
+
+            em.close();
+            emf.close();
 
             BotRunner.runBot(new PokeBot(), "twitter4j.properties");
         } catch (TUSEException e) {
