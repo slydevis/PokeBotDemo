@@ -9,7 +9,7 @@ import javax.persistence.*;
         @NamedQuery(name = Pokemon.FIND_BY_TYPE, query = "SELECT p FROM Pokemon p WHERE p.type1 = :ftype")
 })
 public class Pokemon {
-	
+
 	public enum Type {
 	    NORMAL,
 	    FIRE,
@@ -29,10 +29,10 @@ public class Pokemon {
 	    DARK,
 	    STEEL
 	}
-	
+
     public static final String FIND_BY_TYPE = "findPokemonByType";
     public static final String FIND_ALL = "findAllPokemon";
-    
+
     @Id
     private String name;
 
@@ -127,20 +127,42 @@ public class Pokemon {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Pokemon)) return false;
+        if (this == o) {
+        	return true;
+        }
+        if (!(o instanceof Pokemon)) {
+        	return false;
+        }
 
         Pokemon pokemon = (Pokemon) o;
 
-        if (attack != pokemon.attack) return false;
-        if (attackSpecial != pokemon.attackSpecial) return false;
-        if (baseHP != pokemon.baseHP) return false;
-        if (defense != pokemon.defense) return false;
-        if (defenseSpecial != pokemon.defenseSpecial) return false;
-        if (speed != pokemon.speed) return false;
-        if (name != null ? !name.equals(pokemon.name) : pokemon.name != null) return false;
-        if (type1 != pokemon.type1) return false;
-        if (type2 != pokemon.type2) return false;
+        if (attack != pokemon.attack) {
+        	return false;
+        }
+        if (attackSpecial != pokemon.attackSpecial) {
+        	return false;
+        }
+        if (baseHP != pokemon.baseHP) {
+        	return false;
+        }
+        if (defense != pokemon.defense) {
+        	return false;
+        }
+        if (defenseSpecial != pokemon.defenseSpecial) {
+        	return false;
+        }
+        if (speed != pokemon.speed) {
+        	return false;
+        }
+        if (name != null ? !name.equals(pokemon.name) : pokemon.name != null) {
+        	return false;
+        }
+        if (type1 != pokemon.type1) {
+        	return false;
+        }
+        if (type2 != pokemon.type2) {
+        	return false;
+        }
 
         return true;
     }
@@ -161,16 +183,16 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return "Pokemon{" +
-                "name='" + name + '\'' +
-                ", types1=" + type1 +
-                ", types2=" + type2 +
-                ", baseHP=" + baseHP +
-                ", attack=" + attack +
-                ", defense=" + defense +
-                ", attackSpecial=" + attackSpecial +
-                ", defenseSpecial=" + defenseSpecial +
-                ", speed=" + speed +
-                '}';
+        return "Pokemon{"
+        		+ "name='" + name + '\''
+                + ", types1=" + type1
+                + ", types2=" + type2
+                + ", baseHP=" + baseHP
+                + ", attack=" + attack
+                + ", defense=" + defense
+                + ", attackSpecial=" + attackSpecial
+                + ", defenseSpecial=" + defenseSpecial
+                + ", speed=" + speed
+                + '}';
     }
 }

@@ -10,20 +10,20 @@ public class OwnAskPkmnAttCellTest {
 
 //	AskOwnerCell cell1 = new AskOwnerCell();
 	OwnAskPkmnAtkCell cell = new OwnAskPkmnAtkCell();
-	
+
 /*	@Test
 	public void AskOwnerTest() {
 		assertEquals("@nedseb @nedseb is my owner", cell1.ask(new Tweet("@nedseb", "Owner?")));
 	}*/
-	
+
 	@Test
-	public void OwnerAskAtkTest() {
-		assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb", 
+	public void ownerAskAtkTest() {
+		assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb",
 				cell.ask(new Tweet("nedseb", "#attack #plaquage @bulbizarre")));
 	}
 
 	@Test
-	public void NotOwnerAskAtkTest() {
+	public void notOwnerAskAtkTest() {
 		assertEquals("Fleeex...zZz",
 				cell.ask(new Tweet("nedseb", "attack")));
 	}
