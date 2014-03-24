@@ -33,7 +33,7 @@ public class DAOPokemonJPATest {
     public static void initTestFixture() throws Exception {
 
         entityManagerFactory = Persistence.createEntityManagerFactory("pokebattlePUTest");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager = entityManagerFactory.createEntityManager();
         DAOFactoryJPA.setEntityManager(entityManager);
 
         dao = DAOFactoryJPA.createDAOPokemon();
