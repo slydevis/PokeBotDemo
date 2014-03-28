@@ -1,6 +1,5 @@
 package fr.univaix.iut.pokebattle.bot;
 
-import fr.univaix.iut.pokebattle.jpa.Pokemon;
 import fr.univaix.iut.pokebattle.smartcell.*;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 

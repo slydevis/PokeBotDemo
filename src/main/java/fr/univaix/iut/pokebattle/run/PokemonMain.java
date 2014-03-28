@@ -2,15 +2,12 @@ package fr.univaix.iut.pokebattle.run;
 
 import fr.univaix.iut.pokebattle.bot.PokeBot;
 import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
-import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
-import fr.univaix.iut.pokebattle.jpa.Pokemon;
 import fr.univaix.iut.pokebattle.tuse.TUSEException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.net.URI;
 import java.net.URISyntaxException;
