@@ -6,44 +6,45 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 
 	public String decode(Tweet question) {
 		boolean hashA = false;
-		boolean Aro = false;
-		String Text = question.getText();
-		int NbH = 0;
-		String Att = "";
-		String NomAtt = "";
-		String cible = "";
-		for (int i = 0 ; i < Text.length(); ++i) {
-			
-			if (Text.charAt(i) == '#') {
+		boolean aro = false;
+		String text = question.getText(); //Cette variable récupère le contenu du tweet
+		int nbH = 0; //Variable concernant le nombre de HashTag
+		String att = ""; //Variable qui doit contenir #attack
+		String nomatt = ""; //Nom de l'attaque
+		String cible = ""; //La cible
+		for (int i = 0; i < text.length(); ++i) {
+
+			if (text.charAt(i) == '#') {
 				hashA = true;
-				NbH++;
+				nbH++;
 			}
-			
-			if (Text.charAt(i) == ' ') {
+
+			if (text.charAt(i) == ' ') {
 				hashA = false;
 			}
-			
-			if(hashA && NbH == 1) {
-				Att += Text.charAt(i);
+
+			if (hashA && nbH == 1) {
+				att += text.charAt(i);
 			}
-			
-			if(hashA && Att.equals("#attack") && NbH > 1) {
-				NomAtt += Text.charAt(i);
+
+			if (hashA && att.equals("#attack") && nbH > 1) {
+				nomatt += text.charAt(i);
 			}
-			
-			if (NbH == 2 && Text.charAt(i) == '@') {
-				Aro = true;
+
+			if (nbH == 2 && text.charAt(i) == '@') {
+				aro = true;
 			}
-			
-			if (Aro) {
-				cible += Text.charAt(i);
+
+			if (aro) {
+				cible += text.charAt(i);
 			}
 		}
-		return (cible + ' ' + Att + ' ' + NomAtt + '!' + ' ' + "/cc" + ' ' + '@' + question.getScreenName());
+		return (cible + ' ' + att + ' ' + nomatt + '!' + ' ' + "/cc" + ' ' + '@'
+				+ question.getScreenName());
 	}
-	
-	
-	
+
+
+
 	public String ask(Tweet question) {
 		if (question.getText().contains("#attack")) {
             return decode(question);

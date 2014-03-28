@@ -1,6 +1,9 @@
-package fr.univaix.iut.pokebattle.jpa;
+package fr.univaix.iut.pokebattle.smartcell;
 
-import fr.univaix.iut.pokebattle.run.PokemonMain;
+import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
+import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
+import fr.univaix.iut.pokebattle.jpa.Pokemon;
+import fr.univaix.iut.pokebattle.twitter.Tweet;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -11,27 +14,25 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import fr.univaix.iut.pokebattle.jpa.Pokemon.Type;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Connection;
-import java.util.List;
-import java.util.Map;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
-public class DAOPokemonJPATest {
+public class PokeAskOwnerCellTest {
 
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
+
+    PokeAskOwnerCell cell = new PokeAskOwnerCell();
+
     @BeforeClass
     public static void initTestFixture() throws Exception {
-        // Get the entity manager for the tests.
 
         entityManagerFactory = Persistence.createEntityManagerFactory("pokebattlePUTest");
         entityManager = entityManagerFactory.createEntityManager();
@@ -60,48 +61,33 @@ public class DAOPokemonJPATest {
         DatabaseOperation.CLEAN_INSERT.execute(dbUnitConnection, dataset);
     }
 
+
     @Test
-    public void testInsert() throws Exception {
-        Pokemon raichu = new Pokemon("Raichu");
-        raichu.setType1(Type.ELECTRIC);
-        dao.insert(raichu);
-        assertThat(dao.getById("Raichu").getName()).isEqualTo("Raichu");
-        assertThat(dao.getById("Raichu").getType1()).isEqualTo(Type.ELECTRIC);
+	public void testEleveur() {
+		Pokemon pokemon = new Pokemon("Ronflex", "Linda");	
+		cell.setPokemon(pokemon);
+		assertEquals("@huyvin My owner is @Linda.", cell.ask(new Tweet("huyvin", "Owner?")));
+		
+	}
+
+    @Test
+    public void testSansEleveur() {
+        Pokemon pokemon = new Pokemon("Ronflex");
+        cell.setPokemon(pokemon);
+        assertEquals("@huyvin No owner", cell.ask(new Tweet("huyvin", "Owner?")));
     }
 
     @Test
-    public void testFindByType() throws Exception {
-        List<Pokemon> pokemons = dao.findByType(Type.ELECTRIC);
-        assertThat(pokemons.get(0).getName()).isEqualTo("Pikachu");
-    }
-
-    @Test
-    public void testFindAll() throws Exception {
-        List<Pokemon> pokemons = dao.findAll();
-        assertThat(pokemons.get(0).getName()).isEqualTo("Pikachu");
-        assertThat(pokemons.get(1).getName()).isEqualTo("Rattata");
-    }
-
-    @Test
-    public void testGetById() throws Exception {
-        assertThat(dao.getById("Pikachu").getName()).isEqualTo("Pikachu");
-        assertThat(dao.getById("Rattata").getName()).isEqualTo("Rattata");
-    }
-
-    @Test
-    public void testDelete() throws Exception {
-        dao.delete(dao.getById("Pikachu"));
-        assertThat(dao.getById("Pikachu")).isNull();
-    }
-
-    @Test
-    public void testUpdate() throws Exception {
+    public void testEleveurBD() throws Exception {
         Pokemon pikachu = dao.getById("Pikachu");
-        assertThat(pikachu.getAttack()).isGreaterThan(0);
-        pikachu.setAttack(-1);
-        dao.update(pikachu);
-        assertThat(dao.getById("Pikachu").getAttack()).isLessThan(0);
+        cell.setPokemon(pikachu);
+        assertEquals("@huyvin My owner is @Slydevis.", cell.ask(new Tweet("huyvin", "Owner?")));
+    }
+
+    @Test
+    public void testNoEleveurBD() throws Exception {
+        Pokemon rattata = dao.getById("Rattata");
+        cell.setPokemon(rattata);
+        assertEquals("@huyvin No owner", cell.ask(new Tweet("huyvin", "Owner?")));
     }
 }
-
-
