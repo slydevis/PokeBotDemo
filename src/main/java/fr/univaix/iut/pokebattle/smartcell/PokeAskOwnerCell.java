@@ -10,6 +10,7 @@ public class PokeAskOwnerCell implements SmartCell {
 	{
 		this.poke = poke;
 	}
+
 	@Override
 	public String ask(Tweet question) {
 		if(question.getText().contains("Owner?")){
