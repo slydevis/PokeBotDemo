@@ -49,6 +49,16 @@ public class Pokemon {
     private int defenseSpecial;
     private int speed;
 
+    public String getEleveur() {
+        return Eleveur;
+    }
+
+    public void setEleveur(String eleveur) {
+        Eleveur = eleveur;
+    }
+
+    private String Eleveur;
+
     protected Pokemon() {
 
     }

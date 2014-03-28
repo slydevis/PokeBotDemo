@@ -28,7 +28,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class AskOwnerCellTest {
 
-    AskOwnerCell cell = new AskOwnerCell();
+    PokeAskOwnerCell cell = new PokeAskOwnerCell();
 
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;

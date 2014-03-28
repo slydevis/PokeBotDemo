@@ -45,6 +45,10 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 	
 	
 	public String ask(Tweet question) {
-		return decode(question);
+		if (question.getText().contains("#attack")) {
+            return decode(question);
+        } else {
+            return null;
+        }
 	}
 }
