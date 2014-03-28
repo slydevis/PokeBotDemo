@@ -55,7 +55,7 @@ public class PkmnAtkPkmnDressCell implements SmartCell {
 		if (question.getText().contains("#attack") && question.getText().contains("/cc")) {
 			return decode(question);
 		} else {
-			return "Fleex?...";
+			return null;
 		}
 	}
 }
