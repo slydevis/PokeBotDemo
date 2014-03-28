@@ -61,33 +61,14 @@ public class PokeAskOwnerCellTest {
         DatabaseOperation.CLEAN_INSERT.execute(dbUnitConnection, dataset);
     }
 
-
     @Test
 	public void testEleveur() {
-		Pokemon pokemon = new Pokemon("Ronflex", "Linda");	
-		cell.setPokemon(pokemon);
-		assertEquals("@huyvin My owner is @Linda.", cell.ask(new Tweet("huyvin", "Owner?")));
-		
+		assertEquals("@huyvin @slydevis is my owner", cell.ask(new Tweet("huyvin", "@Pikachu Owner?")));
 	}
 
     @Test
     public void testSansEleveur() {
-        Pokemon pokemon = new Pokemon("Ronflex");
-        cell.setPokemon(pokemon);
-        assertEquals("@huyvin No owner", cell.ask(new Tweet("huyvin", "Owner?")));
-    }
 
-    @Test
-    public void testEleveurBD() throws Exception {
-        Pokemon pikachu = dao.getById("Pikachu");
-        cell.setPokemon(pikachu);
-        assertEquals("@huyvin My owner is @Slydevis.", cell.ask(new Tweet("huyvin", "Owner?")));
-    }
-
-    @Test
-    public void testNoEleveurBD() throws Exception {
-        Pokemon rattata = dao.getById("Rattata");
-        cell.setPokemon(rattata);
-        assertEquals("@huyvin No owner", cell.ask(new Tweet("huyvin", "Owner?")));
+        assertEquals("@huyvin No owner", cell.ask(new Tweet("huyvin", "@Rattata Owner?")));
     }
 }
