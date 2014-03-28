@@ -8,7 +8,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PkmnAtkPkmnDressCellTest {
 
-	PkmnAtkPkmnDressCell cell = new PkmnAtkPkmnDressCell();
+	private PkmnAtkPkmnDressCell cell = new PkmnAtkPkmnDressCell();
 
 	@Test
 	public void testAtk() {
@@ -18,13 +18,11 @@ public class PkmnAtkPkmnDressCellTest {
 
 	@Test
 	public void testBadAtk() {
-		assertEquals(null,
-				cell.ask(new Tweet("nedseb", "#attack #ultralaser @mewtwo")));
+		assertEquals(null, cell.ask(new Tweet("nedseb", "#attack #ultralaser @mewtwo")));
 	}
 
 	@Test
 	public void testBadAtk2() {
-		assertEquals(null,
-				cell.ask(new Tweet("nedseb", "#attack #ultralaser @mewtwo @gantben")));
+		assertEquals(null, cell.ask(new Tweet("nedseb", "#attack #ultralaser @mewtwo @gantben")));
 	}
 }

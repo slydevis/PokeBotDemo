@@ -11,7 +11,8 @@ import static org.junit.Assert.assertEquals;
  * PokeBot is using smartcell properly.
  */
 public class PokeBotTest {
-    PokeBot pokeBot = new PokeBot();
+
+    private PokeBot pokeBot = new PokeBot();
 
     @Test
     public void testSalut() {
@@ -19,24 +20,17 @@ public class PokeBotTest {
         assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("This is not a question.")));
         assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "Salut")));
         assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "This is not a question.")));
+    }
 
-    }
-    
-    
-    public void testOwner() {
-    	
-    }
-    
-    
     @Test
     public void testBadAtk() {
     	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
     }
-    
+
     @Test
     public void testAtk() {
-    	assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb", pokeBot.ask(new Tweet
-    			("nedseb", "#attack #plaquage @bulbizarre")));
+    	assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb", pokeBot.ask(new Tweet(
+    			"nedseb", "#attack #plaquage @bulbizarre")));
     }
-    
+
 }

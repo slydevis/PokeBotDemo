@@ -10,8 +10,8 @@ public class PokeBot implements Bot {
      * find an answer.
      */
     private final SmartCell[] smartCells = new SmartCell[]{
-            new PkmnAtkPkmnDressCell(),
             new OwnAskPkmnAtkCell(),
+            new PkmnAtkPkmnDressCell(),
             new PokeAvecEleveur(),
             new PokemonCriesCell(),
     };

@@ -48,26 +48,26 @@ public class Pokemon {
     private int attackSpecial;
     private int defenseSpecial;
     private int speed;
-    private String Eleveur;
+    private String eleveur;
 
     protected Pokemon() {
     }
 
-    public Pokemon (String name) {
+    public Pokemon(String name) {
         this.name = name;
     }
 
-    public Pokemon (String name, String Eleveur){
+    public Pokemon(String name, String eleveur) {
         this.name = name;
-        this.Eleveur = Eleveur;
+        this.eleveur = eleveur;
     }
 
     public String getEleveur() {
-        return Eleveur;
+        return eleveur;
     }
 
-    public void setEleveur(String Eleveur) {
-        this.Eleveur = Eleveur;
+    public void setEleveur(String eleveur) {
+        this.eleveur = eleveur;
     }
 
     public String getName() {
