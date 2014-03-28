@@ -21,4 +21,22 @@ public class PokeBotTest {
         assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "This is not a question.")));
 
     }
+    
+    
+    public void testOwner() {
+    	
+    }
+    
+    
+    @Test
+    public void testBadAtk() {
+    	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
+    }
+    
+    @Test
+    public void testAtk() {
+    	assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb", pokeBot.ask(new Tweet
+    			("nedseb", "#attack #plaquage @bulbizarre")));
+    }
+    
 }

@@ -49,7 +49,7 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 		if (question.getText().contains("#attack")) {
 			return decode(question);
 		} else {
-			return "Fleeex...zZz";
+			return null;
 		}
 	}
 }

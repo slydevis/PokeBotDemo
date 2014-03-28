@@ -18,13 +18,13 @@ public class PkmnAtkPkmnDressCellTest {
 
 	@Test
 	public void testBadAtk() {
-		assertEquals("Fleex?...",
+		assertEquals(null,
 				cell.ask(new Tweet("nedseb", "#attack #ultralaser @mewtwo")));
 	}
 
 	@Test
 	public void testBadAtk2() {
-		assertEquals("Fleex?...",
+		assertEquals(null,
 				cell.ask(new Tweet("nedseb", "#attack #ultralaser @mewtwo @gantben")));
 	}
 }
