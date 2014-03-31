@@ -15,8 +15,7 @@ public class Main {
 
     public static void main(String[] args) throws URISyntaxException {
 
-        String databaseUrl = "postgres://uxmkwioofjunwk:-_KhHXYpfh8urU46Nu6l3m6NBA@ec2-54-197-241-96.compute-1.amazonaws.com:5432/d946ute9ed9erl";
-        URI dbUri = new URI(databaseUrl);
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
         String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";

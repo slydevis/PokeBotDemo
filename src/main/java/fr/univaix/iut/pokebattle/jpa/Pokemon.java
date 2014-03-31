@@ -50,14 +50,14 @@ public class Pokemon {
     private int speed;
 
     public String getEleveur() {
-        return Eleveur;
+        return eleveur;
     }
 
     public void setEleveur(String eleveur) {
-        Eleveur = eleveur;
+        this.eleveur = eleveur;
     }
 
-    private String Eleveur;
+    private String eleveur;
 
     protected Pokemon() {
     }
@@ -68,7 +68,7 @@ public class Pokemon {
 
     public Pokemon (String name, String Eleveur){
         this.name = name;
-        this.Eleveur = Eleveur;
+        this.eleveur = Eleveur;
     }
 
     public String getName() {
