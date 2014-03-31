@@ -15,7 +15,6 @@ public class PokemonFactory {
 
     public static void createPoke(Pokemon poke) {
         DAOPokemon dao = DAOFactoryJPA.createDAOPokemon();
-        dao.delete(dao.getById(poke.getName()));
-        dao.insert(poke);
+        dao.update(poke);
     }
 }
