@@ -74,12 +74,7 @@ public class PokeBotTest {
     }
 
     @Test
-    public void testNoOwner() {
-    	assertEquals("@slydevis No owner", pokeBot.ask(new Tweet("slydevis", "@Rattata Owner?")));
-    }
-
-    @Test
-    public void noOwner2() {
+    public void noOwner() {
     	assertEquals("@slydevis No owner", pokeBot.ask(new Tweet("slydevis", "Owner?")));
     }
 

@@ -44,6 +44,7 @@ public class Main {
         ronflex.setAttackSpecial(65);
         ronflex.setDefenseSpecial(110);
         ronflex.setSpeed(30);
+        ronflex.setEleveur("NULL");
 
         em.persist(ronflex);
 
