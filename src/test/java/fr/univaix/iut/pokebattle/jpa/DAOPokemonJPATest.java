@@ -27,6 +27,7 @@ public class DAOPokemonJPATest {
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
+
     @BeforeClass
     public static void initTestFixture() throws Exception {
         // Get the entity manager for the tests.
