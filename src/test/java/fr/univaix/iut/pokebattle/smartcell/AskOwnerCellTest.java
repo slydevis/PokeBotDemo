@@ -18,9 +18,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Connection;
-import java.util.List;
 
-import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -28,7 +26,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class AskOwnerCellTest {
 
-    PokeAskOwnerCell cell = new PokeAskOwnerCell();
+    private PokeAskOwnerCell cell = new PokeAskOwnerCell();
 
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;

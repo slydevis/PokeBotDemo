@@ -7,21 +7,23 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokeAskOwnerCell implements SmartCell {
 
-    Pokemon poke;
-	
-    public String getNomPoke(String str)
-    {
+    private Pokemon poke;
+
+    public String getNomPoke(String str) {
         String tmp = "";
-        for(int i = 0; i < str.length();++i)
-        {
-            if(str.charAt(i) == ' ') break;
-            if(str.charAt(i) == '@') ++i;
+        for (int i = 0; i < str.length(); ++i) {
+            if (str.charAt(i) == ' ') {
+            	break;
+            }
+            if (str.charAt(i) == '@') {
+            	++i;
+            }
             tmp += str.charAt(i);
         }
         return tmp;
     }
 
-    public Pokemon RecupInfo(String texte) {
+    public Pokemon recupInfo(String texte) {
         String nom = getNomPoke(texte);
         DAOPokemon dao = DAOFactoryJPA.createDAOPokemon();
         Pokemon poke = dao.getById(nom);
@@ -29,15 +31,13 @@ public class PokeAskOwnerCell implements SmartCell {
     }
 	@Override
 	public String ask(Tweet question) {
-		if(question.getText().contains("Owner?")){
-            poke = RecupInfo(question.getText());
-            if(poke.getEleveur() != null) {
-               String answer = "@" + question.getScreenName() + " @" + poke.getEleveur() + " is my owner";
-              return answer;
-            }
-            else {
-                String answer = "@" + question.getScreenName() + " No owner";
-                return answer;
+		if (question.getText().contains("Owner?")) {
+            poke = recupInfo(question.getText());
+            if (poke.getEleveur() != null) {
+              return "@" + question.getScreenName() + " @" + poke.getEleveur()
+            		  + " is my owner";
+            } else {
+                return "@" + question.getScreenName() + " No owner";
             }
 		}
 		return null;

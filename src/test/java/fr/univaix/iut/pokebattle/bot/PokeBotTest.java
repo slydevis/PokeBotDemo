@@ -26,13 +26,14 @@ import static org.junit.Assert.assertEquals;
  * PokeBot is using smartcell properly.
  */
 public class PokeBotTest {
-    PokeBot pokeBot = new PokeBot();
+    private PokeBot pokeBot = new PokeBot();
 
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
+
     @BeforeClass
     public static void initTestFixture() throws Exception {
 
@@ -73,20 +74,19 @@ public class PokeBotTest {
     }
 
     @Test
-    public void testOwner() {
+    public void testNoOwner() {
     	assertEquals("@slydevis No owner", pokeBot.ask(new Tweet("slydevis", "@Rattata Owner?")));
     }
-    
-    
+
     @Test
     public void testBadAtk() {
     	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
     }
-    
+
     @Test
     public void testAtk() {
-    	assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb", pokeBot.ask(new Tweet
-    			("nedseb", "#attack #plaquage @bulbizarre")));
+    	assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb", pokeBot.ask(new Tweet(
+    			"nedseb", "#attack #plaquage @bulbizarre")));
     }
-    
+
 }

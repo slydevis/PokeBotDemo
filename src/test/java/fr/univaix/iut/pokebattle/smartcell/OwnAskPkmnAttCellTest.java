@@ -9,7 +9,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class OwnAskPkmnAttCellTest {
 
 //	AskOwnerCell cell1 = new AskOwnerCell();
-	OwnAskPkmnAtkCell cell = new OwnAskPkmnAtkCell();
+	private OwnAskPkmnAtkCell cell = new OwnAskPkmnAtkCell();
 
 /*	@Test
 	public void AskOwnerTest() {
