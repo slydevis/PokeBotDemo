@@ -11,14 +11,17 @@ public class PokeAskOwnerCell implements SmartCell {
 
     public String getNomPoke(String str) {
         String tmp = "";
+        boolean ajoutnom = false;
         for (int i = 0; i < str.length(); ++i) {
             if (str.charAt(i) == ' ') {
             	break;
             }
+        	if (ajoutnom) {
+                tmp += str.charAt(i);
+        	}
             if (str.charAt(i) == '@') {
-            	++i;
+            	ajoutnom = true;
             }
-            tmp += str.charAt(i);
         }
         return tmp;
     }
