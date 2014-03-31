@@ -2,6 +2,8 @@ package fr.univaix.iut.pokebattle.run;
 
 import fr.univaix.iut.pokebattle.bot.PokeBot;
 import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
+import fr.univaix.iut.pokebattle.jpa.PokemonFactory;
+import fr.univaix.iut.pokebattle.jpa.Pokemon;
 import fr.univaix.iut.pokebattle.tuse.TUSEException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +47,17 @@ public class PokemonMain {
             EntityManager em = emf.createEntityManager();
 
             DAOFactoryJPA.setEntityManager(em);
+
+            Pokemon ronflex = new Pokemon("Ronflaix");
+            ronflex.setType1(Pokemon.Type.NORMAL);
+            ronflex.setBaseHP(160);
+            ronflex.setAttack(110);
+            ronflex.setDefense(65);
+            ronflex.setAttackSpecial(65);
+            ronflex.setDefenseSpecial(110);
+            ronflex.setSpeed(30);
+
+            PokemonFactory.createPoke(ronflex);
 
             BotRunner.runBot(new PokeBot(), "twitter4j.properties");
         } catch (TUSEException e) {
