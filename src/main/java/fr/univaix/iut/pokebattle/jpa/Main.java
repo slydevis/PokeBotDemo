@@ -13,6 +13,13 @@ import java.util.Map;
 
 public class Main {
 
+		private static Pokemon ronflex = new Pokemon("Ronflaix");
+
+		public static Pokemon getPokemon() {
+			return ronflex;
+		}
+
+
     public static void main(String[] args) throws URISyntaxException {
 
         //String databaseUrl = "postgres://uxmkwioofjunwk:-_KhHXYpfh8urU46Nu6l3m6NBA@ec2-54-197-241-96.compute-1.amazonaws.com:5432/d946ute9ed9erl";
@@ -36,7 +43,6 @@ public class Main {
 
         em.getTransaction().begin();
 
-        Pokemon ronflex = new Pokemon("Ronflaix");
         ronflex.setType1(Type.NORMAL);
         ronflex.setBaseHP(160);
         ronflex.setAttack(110);
