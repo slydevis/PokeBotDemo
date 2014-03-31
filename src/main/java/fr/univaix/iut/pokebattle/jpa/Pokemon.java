@@ -49,6 +49,9 @@ public class Pokemon {
     private int defenseSpecial;
     private int speed;
 
+    @Enumerated(EnumType.STRING)
+    private String eleveur;
+
     public String getEleveur() {
         return eleveur;
     }
@@ -56,8 +59,6 @@ public class Pokemon {
     public void setEleveur(String eleveur) {
         this.eleveur = eleveur;
     }
-
-    private String eleveur;
 
     protected Pokemon() {
     }
