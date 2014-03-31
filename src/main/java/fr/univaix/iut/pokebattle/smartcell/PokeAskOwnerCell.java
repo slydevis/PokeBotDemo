@@ -18,7 +18,6 @@ public class PokeAskOwnerCell implements SmartCell {
             if(str.charAt(i) == ' ') break;
             if(ajoutnom) tmp += str.charAt(i);
             if(str.charAt(i) == '@') {
-                ++i;
                 ajoutnom = true;
             }
         }
