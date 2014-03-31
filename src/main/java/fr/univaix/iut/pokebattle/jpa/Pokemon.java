@@ -194,6 +194,7 @@ public class Pokemon {
         result = 31 * result + attackSpecial;
         result = 31 * result + defenseSpecial;
         result = 31 * result + speed;
+        result = result + (eleveur != null ? eleveur.hashCode() : 0);
         return result;
     }
 
