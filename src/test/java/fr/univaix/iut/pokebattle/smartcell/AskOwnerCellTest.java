@@ -1,9 +1,5 @@
 package fr.univaix.iut.pokebattle.smartcell;
 
-import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
-import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
-import fr.univaix.iut.pokebattle.jpa.Pokemon;
-import fr.univaix.iut.pokebattle.twitter.Tweet;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -13,6 +9,11 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
+import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
+import fr.univaix.iut.pokebattle.jpa.Pokemon;
+import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -71,7 +72,7 @@ public class AskOwnerCellTest {
     @Test
     public void testRecupInfo() throws Exception {
         Pokemon poke = dao.getById("Pikachu");
-        assertEquals(poke, cell.RecupInfo("@Pikachu le pingoin"));
+        assertEquals(poke, cell.recupInfo("@Pikachu le pingoin"));
     }
     @Test
     public void testOwner() throws Exception {
