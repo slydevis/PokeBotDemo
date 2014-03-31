@@ -49,16 +49,7 @@ public class Pokemon {
     private int defenseSpecial;
     private int speed;
 
-    @Enumerated(EnumType.STRING)
     private String eleveur;
-
-    public String getEleveur() {
-        return eleveur;
-    }
-
-    public void setEleveur(String eleveur) {
-        this.eleveur = eleveur;
-    }
 
     protected Pokemon() {
     }
@@ -140,6 +131,14 @@ public class Pokemon {
         this.speed = speed;
     }
 
+    public String getEleveur() {
+        return eleveur;
+    }
+
+    public void setEleveur(String eleveur) {
+        this.eleveur = eleveur;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -178,7 +177,9 @@ public class Pokemon {
         if (type2 != pokemon.type2) {
         	return false;
         }
-
+        if(eleveur != pokemon.eleveur) {
+            return false;
+        }
         return true;
     }
 
@@ -208,6 +209,7 @@ public class Pokemon {
                 + ", attackSpecial=" + attackSpecial
                 + ", defenseSpecial=" + defenseSpecial
                 + ", speed=" + speed
+                + ", eleveur=" + eleveur
                 + '}';
     }
 }
