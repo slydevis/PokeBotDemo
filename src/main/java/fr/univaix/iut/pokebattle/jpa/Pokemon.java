@@ -59,7 +59,7 @@ public class Pokemon {
         this.eleveur = eleveur;
     }
 
-    public Pokemon() {
+    protected Pokemon() {
     }
 
     public Pokemon(String name) {
@@ -207,6 +207,7 @@ public class Pokemon {
                 + ", attackSpecial=" + attackSpecial
                 + ", defenseSpecial=" + defenseSpecial
                 + ", speed=" + speed
+                + ", eleveur=" + eleveur
                 + '}';
     }
 }

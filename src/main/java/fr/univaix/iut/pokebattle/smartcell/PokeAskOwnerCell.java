@@ -36,7 +36,7 @@ public class PokeAskOwnerCell implements SmartCell {
 	public String ask(Tweet question) {
 		if (question.getText().contains("Owner?")) {
             poke = recupInfo(question.getText());
-            if (poke.getEleveur() != null) {
+            if (poke != null && poke.getEleveur() != null) {
               return "@" + question.getScreenName() + " @" + poke.getEleveur()
             		  + " is my owner";
             } else {
