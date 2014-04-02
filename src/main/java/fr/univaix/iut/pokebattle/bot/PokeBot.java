@@ -13,6 +13,7 @@ public class PokeBot implements Bot {
             new PokeAskOwnerCell(),
             new OwnAskPkmnAtkCell(),
             new PkmnAtkPkmnDressCell(),
+            new CatchPokeWithoutOwner(),
             new PokemonCriesCell(),
     };
 
