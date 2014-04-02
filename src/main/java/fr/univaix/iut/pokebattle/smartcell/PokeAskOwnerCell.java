@@ -9,7 +9,7 @@ public class PokeAskOwnerCell implements SmartCell {
 
     private Pokemon poke;
 
-    public String getNomPoke(String str) {
+    public static String getNomPoke(String str) {
         String tmp = "";
         boolean ajoutnom = false;
         for (int i = 0; i < str.length(); ++i) {
@@ -26,12 +26,13 @@ public class PokeAskOwnerCell implements SmartCell {
         return tmp;
     }
 
-    public Pokemon recupInfo(String texte) {
+    public static Pokemon recupInfo(String texte) {
         String nom = getNomPoke(texte);
         DAOPokemon dao = DAOFactoryJPA.createDAOPokemon();
         Pokemon poke = dao.getById(nom);
         return poke;
     }
+    
 	@Override
 	public String ask(Tweet question) {
 		if (question.getText().contains("Owner?")) {
