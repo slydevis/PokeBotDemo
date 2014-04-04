@@ -8,10 +8,10 @@ import twitter4j.TwitterFactory;
 public class UpdateBioCell {
     public static String update(Pokemon poke) {
         Twitter twitter = TwitterFactory.getSingleton();
+        String answer = "#pokebattle - #pokemon - Owner: @" + poke.getEleveur() + " - Level: " + poke.getLevel();
         try {
-            twitter.updateProfile("@" + poke.getName(), "", "",
-                    "#pokebattle - #pokemon - Owner: @"+ poke.getEleveur() + " - Level: " + poke.getLevel());
-            return "#pokebattle - #pokemon - Owner: @"+ poke.getEleveur() + " - Level: " + poke.getLevel();
+            twitter.updateProfile("@" + poke.getName(), "", "", answer);
+            return answer;
         } catch (TwitterException e) {
             e.printStackTrace();
             return "Error";
