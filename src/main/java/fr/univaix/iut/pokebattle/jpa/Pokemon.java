@@ -42,20 +42,27 @@ public class Pokemon {
     @Enumerated(EnumType.STRING)
     private Type type2;
 
+    private int vieActuel;
     private int baseHP;
     private int attack;
     private int defense;
     private int attackSpecial;
     private int defenseSpecial;
     private int speed;
+    
+    private int level;
+    private int XP;
+    private int PV;
 
     private String eleveur;
 
-    protected Pokemon() {
+    public Pokemon() {
     }
 
     public Pokemon (String name) {
         this.name = name;
+        this.level = 1;
+        this.XP = 100;
     }
 
     public Pokemon (String name, String Eleveur){
@@ -138,6 +145,33 @@ public class Pokemon {
     public void setEleveur(String eleveur) {
         this.eleveur = eleveur;
     }
+    
+    public int getLevel(){
+        return level;
+    }
+
+    public void setLevel(int level){
+        this.level = level;
+    }
+
+
+    public int getXP(){ 
+    	return XP; 
+    }
+
+    public void setXP(int XP){
+    	this.XP = XP; 
+    }
+
+
+    public int getPV(){ 
+    	return PV; 
+    }
+
+    public void setPV(int PV){ 
+    	this.PV = PV; 
+    }
+    
 
     @Override
     public boolean equals(Object o) {
