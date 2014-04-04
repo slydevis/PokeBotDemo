@@ -9,12 +9,14 @@ public class UpdateBioCell {
     public static String update(Pokemon poke) {
         Twitter twitter = TwitterFactory.getSingleton();
 
+        String owner;
+
         if(poke.getEleveur() != null) {
-            String owner = poke.getEleveur();
+            owner = poke.getEleveur();
         } else {
-            String owner = "No Owner";
+            owner = "No Owner";
         }
-        
+
         String answer = "#pokebattle - #pokemon - Owner: @" + owner + " - Level: " + poke.getLevel();
         try {
             twitter.updateProfile("@" + poke.getName(), "", "", answer);
