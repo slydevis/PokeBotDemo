@@ -49,6 +49,8 @@ public class Pokemon {
     private int attackSpecial;
     private int defenseSpecial;
     private int speed;
+    private int XP;
+    private int PV;
 
     private String eleveur;
 
@@ -147,6 +149,23 @@ public class Pokemon {
     public void setLevel(int level) {
         this.level = level;
     }
+    
+    public int getXP(){
+        return XP;
+    }
+
+    public void setXP(int XP){
+        this.XP = XP;
+    }
+
+    public int getPV(){
+        return PV;
+    }
+
+    public void setPV(int PV){
+        this.PV = PV;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) {
