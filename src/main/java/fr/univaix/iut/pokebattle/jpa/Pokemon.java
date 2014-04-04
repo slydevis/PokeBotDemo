@@ -54,13 +54,13 @@ public class Pokemon {
     protected Pokemon() {
     }
 
-    public Pokemon (String name) {
+    public Pokemon(String name) {
         this.name = name;
     }
 
-    public Pokemon (String name, String Eleveur){
+    public Pokemon(String name, String eleveur) {
         this.name = name;
-        this.eleveur = Eleveur;
+        this.eleveur = eleveur;
     }
 
     public String getName() {
@@ -177,7 +177,7 @@ public class Pokemon {
         if (type2 != pokemon.type2) {
         	return false;
         }
-        if(eleveur != pokemon.eleveur) {
+        if (eleveur != pokemon.eleveur) {
             return false;
         }
         return true;

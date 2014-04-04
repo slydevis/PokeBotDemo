@@ -19,6 +19,12 @@ import java.util.Map;
 public class PokemonMain {
     private static final Logger LOGGER = LoggerFactory.getLogger(PokemonMain.class);
 
+    private static Pokemon ronflex = new Pokemon("Ronflaix");
+
+    public static Pokemon getPokemon() {
+    	return ronflex;
+    }
+
     private PokemonMain() {
 
     }
@@ -48,7 +54,6 @@ public class PokemonMain {
 
             DAOFactoryJPA.setEntityManager(em);
 
-            Pokemon ronflex = new Pokemon("Ronflaix");
             ronflex.setType1(Pokemon.Type.NORMAL);
             ronflex.setBaseHP(160);
             ronflex.setAttack(110);

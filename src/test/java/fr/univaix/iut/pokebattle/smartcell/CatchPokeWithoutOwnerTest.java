@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
-import fr.univaix.iut.pokebattle.jpa.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
@@ -23,15 +22,15 @@ import java.sql.Connection;
 
 
 public class CatchPokeWithoutOwnerTest {
-	
+
 	private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
-	
-	CatchPokeWithoutOwner cell = new CatchPokeWithoutOwner();
-	
+
+	private CatchPokeWithoutOwner cell = new CatchPokeWithoutOwner();
+
 	@BeforeClass
     public static void initTestFixture() throws Exception {
 

@@ -10,7 +10,6 @@ import java.io.InputStream;
 
 public class BotRunner {
     private BotRunner() {
-
     }
 
     public static void runBot(Bot bot, String credentialsFileName) throws TUSEException {
