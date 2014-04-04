@@ -19,7 +19,7 @@ public class UpdateBioCell {
 
         String answer = "#pokebattle - #pokemon - Owner: " + owner + " - Level: " + poke.getLevel();
         try {
-            twitter.updateProfile("@" + poke.getName(), "", "", answer);
+            twitter.updateProfile(poke.getName(), "", "", answer);
             return answer;
         } catch (TwitterException e) {
             e.printStackTrace();
