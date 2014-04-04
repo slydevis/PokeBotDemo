@@ -12,12 +12,12 @@ public class UpdateBioCell {
         String owner;
 
         if(poke.getEleveur() != null) {
-            owner = poke.getEleveur();
+            owner = "@" + poke.getEleveur();
         } else {
             owner = "No Owner";
         }
 
-        String answer = "#pokebattle - #pokemon - Owner: @" + owner + " - Level: " + poke.getLevel();
+        String answer = "#pokebattle - #pokemon - Owner: " + owner + " - Level: " + poke.getLevel();
         try {
             twitter.updateProfile("@" + poke.getName(), "", "", answer);
             return answer;
