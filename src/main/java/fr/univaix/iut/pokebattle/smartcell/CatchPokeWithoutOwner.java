@@ -15,7 +15,8 @@ public class CatchPokeWithoutOwner implements SmartCell {
             	return "@" + question.getScreenName() + " @" + poke.getEleveur() + " is my owner";
             } else if (poke != null && poke.getEleveur() == null) {
             	poke.setEleveur(question.getScreenName());
-            	return "@" + question.getScreenName() + " @" + poke.getEleveur() + " is my owner";
+                UpdateBioCell.update(poke);
+                return "@" + question.getScreenName() + " @" + poke.getEleveur() + " is my owner";
             }
 		}
 		return null;
