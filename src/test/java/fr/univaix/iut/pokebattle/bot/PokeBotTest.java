@@ -33,6 +33,7 @@ public class PokeBotTest {
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
+
     @BeforeClass
     public static void initTestFixture() throws Exception {
 
@@ -73,10 +74,9 @@ public class PokeBotTest {
     }
 
     @Test
-    public void testOwner() {
+    public void testNoOwner() {
     	assertEquals("@slydevis No owner", pokeBot.ask(new Tweet("slydevis", "@Rattata Owner?")));
     }
-
 
     @Test
     public void testBadAtk() {
@@ -93,4 +93,6 @@ public class PokeBotTest {
     public void testCatchPoke() {
         assertEquals("@slydevis @slydevis is my owner", pokeBot.ask(new Tweet("slydevis", "@Ronflaix Pokeball!")));
     }
+
 }
+

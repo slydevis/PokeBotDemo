@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
+
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -15,13 +16,20 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
+import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
+import fr.univaix.iut.pokebattle.jpa.Pokemon;
+import fr.univaix.iut.pokebattle.twitter.Tweet;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Connection;
 
+import static org.junit.Assert.assertEquals;
 
 public class CatchPokeWithoutOwnerTest {
+
 
 	private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
@@ -65,4 +73,24 @@ public class CatchPokeWithoutOwnerTest {
 	public void testCatchPokeWithoutOwner() {
 		assertEquals("@huyvin24 @huyvin24 is my owner", cell.ask(new Tweet("huyvin24", "@Rattata Pokeball!")));
 	}
+
+    @Test
+    public void testGetNom() throws Exception {
+        assertEquals("Toto", cell.getNomPoke("@Toto le pingouin"));
+    }
+
+    @Test
+    public void testRecupInfo() throws Exception {
+        Pokemon poke = dao.getById("Pikachu");
+        assertEquals(poke, cell.recupInfo("@Pikachu le pingoin"));
+    }
+    @Test
+    public void testOwner() throws Exception {
+        assertEquals("@Toto @slydevis is my owner", cell.ask(new Tweet("Toto", "@Pikachu Owner?")));
+    }
+
+    @Test
+    public void testNoOwner() throws Exception {
+        assertEquals("@Toto No owner", cell.ask(new Tweet("Toto", "@Rattata Owner?")));
+    }
 }

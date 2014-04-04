@@ -39,6 +39,10 @@ public class PokeAskOwnerCell implements SmartCell {
             poke = recupInfo(question.getText());
             if (poke != null && poke.getEleveur() != null) {
                return "@" + question.getScreenName() + " @" + poke.getEleveur() + " is my owner";
+            }
+            if (poke.getEleveur() != null) {
+              return "@" + question.getScreenName() + " @" + poke.getEleveur()
+            		  + " is my owner";
             } else {
                 return "@" + question.getScreenName() + " No owner";
             }
