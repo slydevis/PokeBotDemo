@@ -8,7 +8,14 @@ import twitter4j.TwitterFactory;
 public class UpdateBioCell {
     public static String update(Pokemon poke) {
         Twitter twitter = TwitterFactory.getSingleton();
-        String answer = "#pokebattle - #pokemon - Owner: @" + poke.getEleveur() + " - Level: " + poke.getLevel();
+
+        if(poke.getEleveur() != null) {
+            String owner = poke.getEleveur();
+        } else {
+            String owner = "No Owner";
+        }
+        
+        String answer = "#pokebattle - #pokemon - Owner: @" + owner + " - Level: " + poke.getLevel();
         try {
             twitter.updateProfile("@" + poke.getName(), "", "", answer);
             return answer;
