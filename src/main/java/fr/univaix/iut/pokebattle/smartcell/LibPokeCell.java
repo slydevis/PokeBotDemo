@@ -15,6 +15,7 @@ public class LibPokeCell implements SmartCell {
             if(poke.getEleveur() != null && poke.getEleveur().equals(question.getScreenName()))
             {
                 poke.setEleveur(null);
+                UpdateBioCell.update(poke);
                 return "@"+ question.getScreenName() + " Snif Snif =°(";
             } else {
                 return "@"+ question.getScreenName() + " I love pringles !";
