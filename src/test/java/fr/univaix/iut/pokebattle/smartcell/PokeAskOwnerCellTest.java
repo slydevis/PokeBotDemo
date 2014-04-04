@@ -29,7 +29,7 @@ public class PokeAskOwnerCellTest {
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
 
-    PokeAskOwnerCell cell = new PokeAskOwnerCell();
+    private PokeAskOwnerCell cell = new PokeAskOwnerCell();
 
     @BeforeClass
     public static void initTestFixture() throws Exception {

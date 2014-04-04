@@ -28,8 +28,8 @@ public class LibPokeCellTest {
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
 
-    LibPokeCell cell = new LibPokeCell();
-    PokeAskOwnerCell cell2 = new PokeAskOwnerCell();
+    private LibPokeCell cell = new LibPokeCell();
+    private PokeAskOwnerCell cell2 = new PokeAskOwnerCell();
 
     @BeforeClass
     public static void initTestFixture() throws Exception {

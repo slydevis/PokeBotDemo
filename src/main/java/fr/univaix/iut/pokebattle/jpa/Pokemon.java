@@ -49,21 +49,21 @@ public class Pokemon {
     private int attackSpecial;
     private int defenseSpecial;
     private int speed;
-    private int XP;
-    private int PV;
+    private int xp;
+    private int pv;
 
     private String eleveur;
 
     protected Pokemon() {
     }
 
-    public Pokemon (String name) {
+    public Pokemon(String name) {
         this.name = name;
     }
 
-    public Pokemon (String name, String Eleveur){
+    public Pokemon(String name, String eleveur) {
         this.name = name;
-        this.eleveur = Eleveur;
+        this.eleveur = eleveur;
     }
 
     public String getName() {
@@ -149,23 +149,23 @@ public class Pokemon {
     public void setLevel(int level) {
         this.level = level;
     }
-    
-    public int getXP(){
-        return XP;
+
+    public int getXP() {
+        return xp;
     }
 
-    public void setXP(int XP){
-        this.XP = XP;
+    public void setXP(int xP) {
+        this.xp = xP;
     }
 
-    public int getPV(){
-        return PV;
+    public int getPV() {
+        return pv;
     }
 
-    public void setPV(int PV){
-        this.PV = PV;
+    public void setPV(int pV) {
+        this.pv = pV;
     }
-    
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -204,7 +204,7 @@ public class Pokemon {
         if (type2 != pokemon.type2) {
         	return false;
         }
-        if(eleveur != pokemon.eleveur) {
+        if (eleveur != pokemon.eleveur) {
             return false;
         }
         return true;
