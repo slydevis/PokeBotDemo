@@ -43,6 +43,7 @@ public class Pokemon {
     private Type type2;
 
     private int baseHP;
+    private int level;
     private int attack;
     private int defense;
     private int attackSpecial;
@@ -139,6 +140,13 @@ public class Pokemon {
         this.eleveur = eleveur;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {
