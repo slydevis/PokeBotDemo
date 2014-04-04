@@ -9,7 +9,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class OwnAskPkmnAttCellTest {
 
 //	AskOwnerCell cell1 = new AskOwnerCell();
-	OwnAskPkmnAtkCell cell = new OwnAskPkmnAtkCell();
+	private OwnAskPkmnAtkCell cell = new OwnAskPkmnAtkCell();
 
 /*	@Test
 	public void AskOwnerTest() {
@@ -18,8 +18,8 @@ public class OwnAskPkmnAttCellTest {
 
 	@Test
 	public void ownerAskAtkTest() {
-		assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb",
-				cell.ask(new Tweet("nedseb", "#attack #plaquage @bulbizarre")));
+		assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis",
+				cell.ask(new Tweet("slydevis", "@Pikachu #attack #plaquage @bulbizarre")));
 	}
 
 	@Test

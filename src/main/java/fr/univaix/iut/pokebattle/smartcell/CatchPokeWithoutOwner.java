@@ -6,7 +6,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class CatchPokeWithoutOwner implements SmartCell {
 
 	private Pokemon poke;
-	
+
 	@Override
 	public String ask(Tweet question) {
 		if (question.getText().contains("Pokeball!")) {

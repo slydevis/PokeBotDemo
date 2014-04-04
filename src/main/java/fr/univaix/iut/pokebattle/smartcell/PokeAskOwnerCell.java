@@ -32,7 +32,7 @@ public class PokeAskOwnerCell implements SmartCell {
         Pokemon poke = dao.getById(nom);
         return poke;
     }
-    
+
 	@Override
 	public String ask(Tweet question) {
 		if (question.getText().contains("Owner?")) {

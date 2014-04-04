@@ -32,8 +32,8 @@ private static EntityManager entityManager;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
 
-    PokeDonneCarac cell = new PokeDonneCarac();
-    
+    private PokeDonneCarac cell = new PokeDonneCarac();
+
     @BeforeClass
     public static void initTestFixture() throws Exception {
 
@@ -66,16 +66,16 @@ private static EntityManager entityManager;
 
     @Test
     public void test1() {
-        assertEquals("@huyvin #level=1", cell.ask(new Tweet("huyvin","@Rattata #stat #level ?")));
+        assertEquals("@huyvin #level=1", cell.ask(new Tweet("huyvin", "@Rattata #stat #level ?")));
     }
 
     @Test
     public void test2() {
-        assertEquals("@huyvin #XP=0", cell.ask(new Tweet("huyvin","@Rattata #stat #XP ?")));
+        assertEquals("@huyvin #XP=0", cell.ask(new Tweet("huyvin", "@Rattata #stat #XP ?")));
     }
 
     @Test
     public void test3() {
-        assertEquals("@huyvin #PV=0", cell.ask(new Tweet("huyvin","@Rattata #stat #PV ?")));
+        assertEquals("@huyvin #PV=0", cell.ask(new Tweet("huyvin", "@Rattata #stat #PV ?")));
     }
 }

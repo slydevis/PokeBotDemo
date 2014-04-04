@@ -7,7 +7,9 @@ import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
 
 public class UpdateBioCellTest {
-    UpdateBioCell updateBioCell = new UpdateBioCell();
+
+    private UpdateBioCell updateBioCell = new UpdateBioCell();
+
     @Test
     public void testUpdate() throws Exception {
         Pokemon poke = new Pokemon("Ronflaix");

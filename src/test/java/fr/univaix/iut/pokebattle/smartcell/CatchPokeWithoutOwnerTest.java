@@ -23,15 +23,15 @@ import java.sql.Connection;
 
 
 public class CatchPokeWithoutOwnerTest {
-	
+
 	private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
-	
-	CatchPokeWithoutOwner cell = new CatchPokeWithoutOwner();
-	
+
+	private CatchPokeWithoutOwner cell = new CatchPokeWithoutOwner();
+
 	@BeforeClass
     public static void initTestFixture() throws Exception {
 
@@ -66,7 +66,7 @@ public class CatchPokeWithoutOwnerTest {
 	public void testCatchPokeWithoutOwner() {
 		assertEquals("@huyvin24 @huyvin24 is my owner", cell.ask(new Tweet("huyvin24", "@Rattata Pokeball!")));
 	}
-	
+
 	@Test
 	public void testCatchPokeWithOwner() {
 		assertEquals("@huyvin24 @slydevis is my owner", cell.ask(new Tweet("huyvin24", "@Pikachu Pokeball!")));
