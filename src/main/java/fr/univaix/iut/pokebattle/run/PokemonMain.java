@@ -53,6 +53,7 @@ public class PokemonMain {
             ronflex.setType1(Pokemon.Type.NORMAL);
             ronflex.setLevel(1);
             ronflex.setBaseHP(160);
+            ronflex.setPV(160);
             ronflex.setAttack(110);
             ronflex.setDefense(65);
             ronflex.setAttackSpecial(65);
