@@ -65,17 +65,17 @@ private static EntityManager entityManager;
     }
 
     @Test
-    public void test1() {
+    public void testLevel() {
         assertEquals("@huyvin #level=1", cell.ask(new Tweet("huyvin","@Rattata #stat #level ?")));
     }
 
     @Test
-    public void test2() {
+    public void testXp() {
         assertEquals("@huyvin #XP=0", cell.ask(new Tweet("huyvin","@Rattata #stat #XP ?")));
     }
 
     @Test
-    public void test3() {
+    public void testPv() {
         assertEquals("@huyvin #PV=0", cell.ask(new Tweet("huyvin","@Rattata #stat #PV ?")));
     }
 }
