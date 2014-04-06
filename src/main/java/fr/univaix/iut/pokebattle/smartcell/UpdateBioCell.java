@@ -11,7 +11,7 @@ public class UpdateBioCell {
 
         String owner;
 
-        if(poke.getEleveur() != null) {
+        if (poke.getEleveur() != null) {
             owner = "@" + poke.getEleveur();
         } else {
             owner = "No Owner";
