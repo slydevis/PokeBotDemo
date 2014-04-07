@@ -1,40 +1,34 @@
-package fr.univaix.iut.pokebattle.bot;
+package fr.univaix.iut.pokebattle.jpa;
 
-import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
-import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
-import fr.univaix.iut.pokebattle.twitter.Tweet;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.eclipse.persistence.internal.jpa.EntityManagerImpl;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Connection;
 
-import static org.junit.Assert.assertEquals;
+import static org.fest.assertions.Assertions.assertThat;
 
 /**
- * Integration tests checking the PokeBot
- * behavior. We just test some cases to make sure that the
- * PokeBot is using smartcell properly.
+ * Created by guillaume on 31/03/14.
  */
-public class PokeBotTest {
-    PokeBot pokeBot = new PokeBot();
-
+public class PokemonFactoryTest {
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
+
+    PokemonFactory pf = new PokemonFactory();
+
     @BeforeClass
     public static void initTestFixture() throws Exception {
+        // Get the entity manager for the tests.
 
         entityManagerFactory = Persistence.createEntityManagerFactory("pokebattlePUTest");
         entityManager = entityManagerFactory.createEntityManager();
@@ -64,33 +58,19 @@ public class PokeBotTest {
     }
 
     @Test
-    public void testSalut() {
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("Salut")));
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("This is not a question.")));
-        assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "Salut")));
-        assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "This is not a question.")));
+    public void testCreatePoke() throws Exception {
 
-    }
+        Pokemon ronflex = new Pokemon("Ronflaix");
+        ronflex.setType1(Pokemon.Type.NORMAL);
+        ronflex.setBaseHP(160);
+        ronflex.setAttack(110);
+        ronflex.setDefense(65);
+        ronflex.setAttackSpecial(65);
+        ronflex.setDefenseSpecial(110);
+        ronflex.setSpeed(30);
 
-    @Test
-    public void testOwner() {
-    	assertEquals("@slydevis No owner", pokeBot.ask(new Tweet("slydevis", "@Rattata Owner?")));
-    }
-    
-    
-    @Test
-    public void testBadAtk() {
-    	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
-    }
-    
-    @Test
-    public void testAtk() {
-    	assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis", pokeBot.ask(new Tweet
-    			("slydevis", "@Pikachu #attack #plaquage @bulbizarre")));
-    }
+        pf.createPoke(ronflex);
 
-    @Test
-    public void testCatchPoke() {
-        assertEquals("@slydevis @slydevis is my owner", pokeBot.ask(new Tweet("slydevis", "@Ronflaix Pokeball!")));
+        assertThat(dao.getById("Ronflaix")).isNotNull();
     }
 }
