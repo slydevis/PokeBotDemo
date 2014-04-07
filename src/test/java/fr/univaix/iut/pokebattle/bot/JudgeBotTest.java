@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.fest.assertions.Assertions.assertThat;
 
 public class JudgeBotTest {
-    private JudgeBot judgeBot = new JudgeBot();
+    JudgeBot judgeBot = new JudgeBot();
 
     @Test
     public void testAsk() throws Exception {

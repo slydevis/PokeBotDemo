@@ -8,7 +8,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PkmnFightCellTest {
 
-	private PkmnFightCell cell = new PkmnFightCell();
+	PkmnFightCell cell = new PkmnFightCell();
 
 	@Test
 	public void fightTest() {

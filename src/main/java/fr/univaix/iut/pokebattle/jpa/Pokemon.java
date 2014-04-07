@@ -43,11 +43,15 @@ public class Pokemon {
     private Type type2;
 
     private int baseHP;
+    private int level;
     private int attack;
     private int defense;
     private int attackSpecial;
     private int defenseSpecial;
     private int speed;
+    private int xp;
+    private int pv;
+
     private String eleveur;
 
     protected Pokemon() {
@@ -59,14 +63,6 @@ public class Pokemon {
 
     public Pokemon(String name, String eleveur) {
         this.name = name;
-        this.eleveur = eleveur;
-    }
-
-    public String getEleveur() {
-        return eleveur;
-    }
-
-    public void setEleveur(String eleveur) {
         this.eleveur = eleveur;
     }
 
@@ -138,6 +134,38 @@ public class Pokemon {
         this.speed = speed;
     }
 
+    public String getEleveur() {
+        return eleveur;
+    }
+
+    public void setEleveur(String eleveur) {
+        this.eleveur = eleveur;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getXP() {
+        return xp;
+    }
+
+    public void setXP(int xp) {
+        this.xp = xp;
+    }
+
+    public int getPV() {
+        return pv;
+    }
+
+    public void setPV(int pv) {
+        this.pv = pv;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -176,7 +204,9 @@ public class Pokemon {
         if (type2 != pokemon.type2) {
         	return false;
         }
-
+        if (eleveur != pokemon.eleveur) {
+            return false;
+        }
         return true;
     }
 
@@ -191,6 +221,7 @@ public class Pokemon {
         result = 31 * result + attackSpecial;
         result = 31 * result + defenseSpecial;
         result = 31 * result + speed;
+        result = result + (eleveur != null ? eleveur.hashCode() : 0);
         return result;
     }
 
@@ -206,6 +237,7 @@ public class Pokemon {
                 + ", attackSpecial=" + attackSpecial
                 + ", defenseSpecial=" + defenseSpecial
                 + ", speed=" + speed
+                + ", eleveur=" + eleveur
                 + '}';
     }
 }

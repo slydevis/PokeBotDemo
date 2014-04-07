@@ -1,5 +1,6 @@
 package fr.univaix.iut.pokebattle.jpa;
 
+import fr.univaix.iut.pokebattle.run.PokemonMain;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -17,6 +18,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Connection;
 import java.util.List;
+import java.util.Map;
+
 import static org.fest.assertions.Assertions.assertThat;
 
 public class DAOPokemonJPATest {
@@ -28,6 +31,7 @@ public class DAOPokemonJPATest {
     private static DAOPokemon dao;
     @BeforeClass
     public static void initTestFixture() throws Exception {
+        // Get the entity manager for the tests.
 
         entityManagerFactory = Persistence.createEntityManagerFactory("pokebattlePUTest");
         entityManager = entityManagerFactory.createEntityManager();

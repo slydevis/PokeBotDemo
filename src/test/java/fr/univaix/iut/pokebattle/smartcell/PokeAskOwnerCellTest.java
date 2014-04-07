@@ -1,9 +1,9 @@
 package fr.univaix.iut.pokebattle.smartcell;
 
-import static org.junit.Assert.*;
-
 import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
+import fr.univaix.iut.pokebattle.jpa.Pokemon;
+import fr.univaix.iut.pokebattle.twitter.Tweet;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -14,28 +14,22 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import fr.univaix.iut.pokebattle.twitter.Tweet;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Connection;
 
-public class OwnAskPkmnAttCellTest {
+import static org.junit.Assert.assertEquals;
 
-//	AskOwnerCell cell1 = new AskOwnerCell();
-	OwnAskPkmnAtkCell cell = new OwnAskPkmnAtkCell();
+public class PokeAskOwnerCellTest {
 
-/*	@Test
-	public void AskOwnerTest() {
-		assertEquals("@nedseb @nedseb is my owner", cell1.ask(new Tweet("@nedseb", "Owner?")));
-	}*/
-private static EntityManager entityManager;
+    private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
 
+    PokeAskOwnerCell cell = new PokeAskOwnerCell();
 
     @BeforeClass
     public static void initTestFixture() throws Exception {
@@ -67,15 +61,14 @@ private static EntityManager entityManager;
         DatabaseOperation.CLEAN_INSERT.execute(dbUnitConnection, dataset);
     }
 
-	@Test
-	public void ownerAskAtkTest() {
-		assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis",
-				cell.ask(new Tweet("slydevis", "@Pikachu #attack #plaquage @bulbizarre")));
+    @Test
+	public void testEleveur() {
+		assertEquals("@huyvin @slydevis is my owner", cell.ask(new Tweet("huyvin", "@Pikachu Owner?")));
 	}
 
-	@Test
-	public void notOwnerAskAtkTest() {
-		assertEquals(null,
-				cell.ask(new Tweet("nedseb", "attack")));
-	}
+    @Test
+    public void testSansEleveur() {
+
+        assertEquals("@huyvin No owner", cell.ask(new Tweet("huyvin", "@Rattata Owner?")));
+    }
 }
