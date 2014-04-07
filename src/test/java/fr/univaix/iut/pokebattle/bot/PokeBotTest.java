@@ -82,6 +82,12 @@ public class PokeBotTest {
     public void testBadAtk() {
     	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
     }
+    
+    @Test
+    public void testAtk() {
+    	assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis", pokeBot.ask(new Tweet
+    			("slydevis", "@Pikachu #attack #plaquage @bulbizarre")));
+    }
 
     @Test
     public void testCatchPoke() {

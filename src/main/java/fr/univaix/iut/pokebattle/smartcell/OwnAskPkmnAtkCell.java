@@ -63,7 +63,7 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 			return (cible + ' ' + att + ' ' + nomatt + '!' + ' ' + "/cc" + ' ' + dresscible
 					+ ' ' + '@' + question.getScreenName());
 		}
-		
+
 		return (cible + ' ' + att + ' ' + nomatt + '!' + ' ' + "/cc" + ' ' + '@'
 				+ question.getScreenName());
 
