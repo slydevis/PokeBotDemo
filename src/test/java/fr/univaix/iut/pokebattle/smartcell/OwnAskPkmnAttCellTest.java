@@ -23,13 +23,8 @@ import java.sql.Connection;
 
 public class OwnAskPkmnAttCellTest {
 
-//	AskOwnerCell cell1 = new AskOwnerCell();
 	OwnAskPkmnAtkCell cell = new OwnAskPkmnAtkCell();
 
-/*	@Test
-	public void AskOwnerTest() {
-		assertEquals("@nedseb @nedseb is my owner", cell1.ask(new Tweet("@nedseb", "Owner?")));
-	}*/
 private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
