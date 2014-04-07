@@ -78,4 +78,11 @@ private static EntityManager entityManager;
 		assertEquals(null,
 				cell.ask(new Tweet("nedseb", "attack")));
 	}
+	
+	@Test
+	public void ownerAskAtkDressTest() {
+		assertEquals("@bulbizarre #attack #plaquage! /cc @gantben @slydevis",
+				cell.ask(new Tweet("slydevis", "@Pikachu #attack #plaquage @bulbizarre /cc @gantben")));
+	}
+	
 }
