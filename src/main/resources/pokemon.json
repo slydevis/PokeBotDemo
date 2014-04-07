@@ -1,0 +1,51 @@
+{
+      {
+        "niveau": "Départ",
+        "nom": "Amnésie",
+        "puissance": "-",
+        "precision": "-",
+        "pp": "20"
+      },
+      {
+        "niveau": "Départ",
+        "nom": "Coup d'Boule",
+        "puissance": "70",
+        "precision": "100",
+        "pp": "15"
+      },
+      {
+        "niveau": "Départ",
+        "nom": "Repos",
+        "puissance": "-",
+        "precision": "-",
+        "pp": "10"
+      },
+      {
+        "niveau": "N.35",
+        "nom": "Plaquage",
+        "puissance": "85",
+        "precision": "100",
+        "pp": "15"
+      },
+      {
+        "niveau": "N.41",
+        "nom": "Armure",
+        "puissance": "-",
+        "precision": "-",
+        "pp": "30"
+      },
+      {
+        "niveau": "N.48",
+        "nom": "Damoclès",
+        "puissance": "100",
+        "precision": "100",
+        "pp": "15"
+      },
+      {
+        "niveau": "N.56",
+        "nom": "Ultralaser",
+        "puissance": "150",
+        "precision": "90",
+        "pp": "5"
+      }
+ }

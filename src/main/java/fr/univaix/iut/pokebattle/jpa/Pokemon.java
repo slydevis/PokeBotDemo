@@ -1,6 +1,7 @@
 package fr.univaix.iut.pokebattle.jpa;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 
 @Entity
@@ -52,7 +53,9 @@ public class Pokemon {
     private int xp;
     private int pv;
 
+
     private String eleveur;
+
 
     protected Pokemon() {
     }
@@ -216,7 +219,7 @@ public class Pokemon {
         result = 31 * result + (type1 != null ? type1.hashCode() : 0);
         result = 31 * result + (type2 != null ? type2.hashCode() : 0);
         result = 31 * result + baseHP;
-        result = 31 * result + attack;
+        /*result = 31 * result + attack;*/
         result = 31 * result + defense;
         result = 31 * result + attackSpecial;
         result = 31 * result + defenseSpecial;
