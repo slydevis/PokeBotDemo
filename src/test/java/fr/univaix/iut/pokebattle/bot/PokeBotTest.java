@@ -82,15 +82,33 @@ public class PokeBotTest {
     public void testBadAtk() {
     	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
     }
-    
-    @Test
-    public void testAtk() {
-    	assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis", pokeBot.ask(new Tweet
-    			("slydevis", "@Pikachu #attack #plaquage @bulbizarre")));
-    }
 
     @Test
     public void testCatchPoke() {
         assertEquals("@slydevis @slydevis is my owner", pokeBot.ask(new Tweet("slydevis", "@Ronflaix Pokeball!")));
+    }
+    
+    @Test
+    public void testBadOwnerGoodAtk() {
+    	assertEquals("@slydevis is my owner", pokeBot.ask(new Tweet
+    			("nedseb", "@Ronflaix #attack #plaquage @bulbizarre")));
+    }
+    
+    @Test
+    public void testGoodOwnerGoodAtk() {
+    	assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis", pokeBot.ask(new Tweet
+    			("slydevis", "@Ronflaix #attack #plaquage @bulbizarre")));
+    }
+    
+    @Test
+    public void testGoodOwnerbutBadAtk() {
+    	assertEquals("@slydevis ZzZz...Fleeex?", pokeBot.ask(new Tweet
+    			("slydevis", "@Ronflaix #attack @bulbizarre")));
+    }
+    
+    @Test
+    public void testGoodOwnerGoodAtkDress() {
+    	assertEquals("@slydevis ZzZz...Fleeex?", pokeBot.ask(new Tweet
+    			("slydevis", "@Ronflaix #attack @bulbizarre /cc @Miformat")));
     }
 }
