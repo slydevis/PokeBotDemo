@@ -2,9 +2,15 @@ package fr.univaix.iut.pokebattle.bot;
 
 import fr.univaix.iut.pokebattle.smartcell.*;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
+import fr.univaix.iut.pokebattle.twitter.UpdateBioCell;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
 
 
 public class PokeBot implements Bot {
+
+    private UpdateBioCell updateBioCell;
+
     /**
      * List of smartcell the questions go through to
      * find an answer.
@@ -26,7 +32,7 @@ public class PokeBot implements Bot {
      * @return An answer... or null if it doesn't get it.
      */
     @Override
-    public String ask(Tweet question) {
+    public String ask(Tweet question) throws TwitterException {
         for (SmartCell cell : smartCells) {
             String answer = cell.ask(question);
             if (answer != null) {
@@ -34,6 +40,11 @@ public class PokeBot implements Bot {
             }
         }
         return null;
+    }
+
+    public void setTwitter(Twitter twitter) {
+        this.updateBioCell = UpdateBioCell.getInstance();
+        this.updateBioCell.setTwitter(twitter);
     }
 
 }

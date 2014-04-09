@@ -12,6 +12,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import twitter4j.TwitterException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -64,7 +65,7 @@ public class PokeBotTest {
     }
 
     @Test
-    public void testSalut() {
+    public void testSalut() throws TwitterException {
         assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("Salut")));
         assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("This is not a question.")));
         assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "Salut")));
@@ -73,24 +74,24 @@ public class PokeBotTest {
     }
 
     @Test
-    public void testOwner() {
+    public void testOwner() throws TwitterException {
     	assertEquals("@slydevis No owner", pokeBot.ask(new Tweet("slydevis", "@Rattata Owner?")));
     }
     
     
     @Test
-    public void testBadAtk() {
+    public void testBadAtk() throws TwitterException {
     	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
     }
     
     @Test
-    public void testAtk() {
+    public void testAtk() throws TwitterException {
     	assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis", pokeBot.ask(new Tweet
     			("slydevis", "@Pikachu #attack #plaquage @bulbizarre")));
     }
 
     @Test
-    public void testCatchPoke() {
+    public void testCatchPoke() throws TwitterException {
         assertEquals("@slydevis @slydevis is my owner", pokeBot.ask(new Tweet("slydevis", "@Ronflaix Pokeball!")));
     }
 }

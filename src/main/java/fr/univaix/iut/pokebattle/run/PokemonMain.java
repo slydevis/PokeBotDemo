@@ -4,7 +4,6 @@ import fr.univaix.iut.pokebattle.bot.PokeBot;
 import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.jpa.PokemonFactory;
 import fr.univaix.iut.pokebattle.jpa.Pokemon;
-import fr.univaix.iut.pokebattle.smartcell.UpdateBioCell;
 import fr.univaix.iut.pokebattle.tuse.TUSEException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +59,6 @@ public class PokemonMain {
             ronflex.setDefenseSpecial(110);
             ronflex.setSpeed(30);
 
-            UpdateBioCell.update(ronflex);
             PokemonFactory.createPoke(ronflex);
 
             BotRunner.runBot(new PokeBot(), "twitter4j.properties");

@@ -14,9 +14,6 @@ import java.sql.Connection;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-/**
- * Created by guillaume on 31/03/14.
- */
 public class PokemonFactoryTest {
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
