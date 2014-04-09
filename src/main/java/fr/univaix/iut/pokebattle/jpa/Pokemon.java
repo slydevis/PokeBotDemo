@@ -1,6 +1,7 @@
 package fr.univaix.iut.pokebattle.jpa;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 
 @Entity
@@ -52,7 +53,9 @@ public class Pokemon {
     private int xp;
     private int pv;
 
+
     private String eleveur;
+
 
     protected Pokemon() {
     }
