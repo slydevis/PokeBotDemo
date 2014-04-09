@@ -16,9 +16,11 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 
 		String text = question.getText(); //Cette variable récupère le contenu du tweet
 		int nbH = 0; //Variable concernant le nombre de HashTag
+		int nbA = 0; //Variable concernant le nombre d'arobase
 		String att = ""; //Variable qui doit contenir #attack
 		String nomatt = ""; //Nom de l'attaque
 		String cible = ""; //La cible
+		String dresscible = ""; //Nom du dresseur de la cible
 		for (int i = 0; i < text.length(); ++i) {
 
 			if (text.charAt(i) == '#') {
@@ -28,6 +30,7 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 
 			if (text.charAt(i) == ' ') {
 				hashA = false;
+				aro = false;
 			}
 
 			if (hashA && nbH == 1) {
@@ -40,11 +43,25 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 
 			if (nbH == 2 && text.charAt(i) == '@') {
 				aro = true;
+				nbA++;
 			}
 
-			if (aro) {
+			if (aro && nbA == 1) {
 				cible += text.charAt(i);
 			}
+			
+			if (aro && nbA > 1) {
+				dresscible += text.charAt(i);
+			}
+		}
+
+		if (nomatt.isEmpty()) {
+			return '@' + question.getScreenName() + " ZzZz...Fleeex?";
+		}
+		
+		if (!dresscible.isEmpty()) {
+			return (cible + ' ' + att + ' ' + nomatt + '!' + ' ' + "/cc" + ' ' + dresscible
+					+ ' ' + '@' + question.getScreenName());
 		}
 
 		return (cible + ' ' + att + ' ' + nomatt + '!' + ' ' + "/cc" + ' ' + '@'
