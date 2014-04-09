@@ -12,6 +12,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.Mockito;
+import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
 import javax.persistence.EntityManager;
@@ -29,6 +31,7 @@ import static org.junit.Assert.assertEquals;
 public class PokeBotTest {
     PokeBot pokeBot = new PokeBot();
 
+    Twitter twitter = Mockito.mock(Twitter.class);
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
@@ -36,7 +39,6 @@ public class PokeBotTest {
     private static DAOPokemon dao;
     @BeforeClass
     public static void initTestFixture() throws Exception {
-
         entityManagerFactory = Persistence.createEntityManagerFactory("pokebattlePUTest");
         entityManager = entityManagerFactory.createEntityManager();
         DAOFactoryJPA.setEntityManager(entityManager);
@@ -61,6 +63,7 @@ public class PokeBotTest {
     @Before
     public void setUp() throws Exception {
         //Clean the data from previous test and insert new data test.
+        pokeBot.setTwitter(twitter);
         DatabaseOperation.CLEAN_INSERT.execute(dbUnitConnection, dataset);
     }
 
@@ -93,5 +96,11 @@ public class PokeBotTest {
     @Test
     public void testCatchPoke() throws TwitterException {
         assertEquals("@slydevis @slydevis is my owner", pokeBot.ask(new Tweet("slydevis", "@Ronflaix Pokeball!")));
+    }
+
+    @Test
+    public void testTroll() throws TwitterException {
+        assertEquals("@slydevis Trolol http://www.dailymotion.com/video/xtczcf_gandalf-epic-sax-guy_fun",
+                pokeBot.ask(new Tweet("slydevis", "@Ronflaix Troll")));
     }
 }
