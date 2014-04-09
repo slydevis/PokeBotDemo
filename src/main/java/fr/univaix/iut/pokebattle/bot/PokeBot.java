@@ -21,6 +21,7 @@ public class PokeBot implements Bot {
             new OwnAskPkmnAtkCell(),
             new CatchPokeWithoutOwner(),
             new LibPokeCell(),
+            new PokeTrollCell(),
             new PokemonCriesCell(),
     };
 
