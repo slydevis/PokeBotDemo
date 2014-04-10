@@ -92,6 +92,25 @@ public class PokeBotTest {
     	assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis", pokeBot.ask(new Tweet
     			("slydevis", "@Pikachu #attack #plaquage @bulbizarre")));
     }
+    
+    @Test
+    public void testbadOwnerAtk() throws TwitterException {
+    	assertEquals("@slydevis is my owner", pokeBot.ask(new Tweet
+    			("nedseb", "@Pikachu #attack #plaquage @bulbizarre")));
+    }
+    
+    @Test
+    public void unknwonAtk() throws TwitterException {
+    	assertEquals("@slydevis ZzZz...Fleeex?", pokeBot.ask(new Tweet
+    			("slydevis", "@Pikachu #attack @bulbizarre")));
+    }
+    
+    @Test
+    public void testOwnerEnemyAtk() throws TwitterException {
+    	assertEquals("@bulbizarre #attack #plaquage! /cc @gantben @slydevis", pokeBot.ask(new Tweet
+    			("slydevis", "@Pikachu #attack #plaquage @bulbizarre /cc @gantben")));
+    }
+    
 
     @Test
     public void testCatchPoke() throws TwitterException {
