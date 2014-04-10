@@ -95,12 +95,18 @@ public class PokeBotTest {
 
     @Test
     public void testCatchPoke() throws TwitterException {
-        assertEquals("@slydevis @slydevis is my owner", pokeBot.ask(new Tweet("slydevis", "@Ronflaix Pokeball!")));
+        assertEquals("@slydevis @nedseb is my owner", pokeBot.ask(new Tweet("slydevis", "@Ronflaix Pokeball!")));
     }
 
     @Test
     public void testTroll() throws TwitterException {
         assertEquals("@slydevis Trolol http://www.dailymotion.com/video/xtczcf_gandalf-epic-sax-guy_fun",
                 pokeBot.ask(new Tweet("slydevis", "@Ronflaix Troll")));
+    }
+
+    @Test
+    public void testKO() throws TwitterException {
+        assertEquals("@Ronflaix #attack #charge! /cc @nedseb @slydevis", pokeBot.ask(new Tweet("slydevis", "@Pikachu #attack #charge @Ronflaix /cc @nedseb  ")));
+        assertEquals("#KO /cc @viviane @nedseb @slydevis", pokeBot.ask(new Tweet("viviane", "@Pikachu -35pv /cc @slydevis")));
     }
 }

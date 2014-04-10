@@ -61,11 +61,6 @@ public class Pokemon {
         this.name = name;
     }
 
-    public Pokemon(String name, String eleveur) {
-        this.name = name;
-        this.eleveur = eleveur;
-    }
-
     public String getName() {
         return name;
     }
