@@ -31,11 +31,11 @@ public class DataObjectAttack {
         this.precision = precision;
     }
 
-    public String getPp() {
+    public String getPP() {
         return pp;
     }
 
-    public void setPp(String pp) {
+    public void setPP(String pp) {
         this.pp = pp;
     }
 

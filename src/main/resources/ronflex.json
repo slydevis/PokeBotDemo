@@ -1,0 +1,92 @@
+{
+    "numéro": "143",
+    "nom": "Ronflex",
+    "nomen": "Snorlax",
+    "nomja": "カビゴン",
+    "nomtm": "Kabigon",
+    "nomde": "Relaxo",
+    "légende": "ArtworkdeRonflexpour{{RFVF}}",
+    "ndex": "143",
+    "jdex": "225",
+    "njdex": "230",
+    "hdex": "298",
+    "sdex": "113",
+    "fdex": "105",
+    "type1": "Normal",
+    "espece": "Pionceur",
+    "taille": "2.1",
+    "poids": "460.0",
+    "capspe1": "Vaccin",
+    "capspe2": "Isograisse",
+    "capspe3": "Gloutonnerie",
+    "groupoeuf1": "Monstre",
+    "oeufpas": "10240",
+    "effortval": "+2PV",
+    "expval": "154",
+    "expmax": "1250000",
+    "fmratio": ".125",
+    "captureval": "25",
+    "couleur": "Noir",
+    "forme": "12",
+    "pokemon": "Ronflex",
+    "numero": "143",
+    "artwork_supp1-nom": "Génération1",
+    "artwork_supp1-img": "RonflexRB.png",
+    "pinballRB-gif": "oui",
+    "pdm": "oui",
+    "almia": "oui",
+    "diff_rs-rfvf": "oui",
+    "diff_dp-pt": "oui",
+    "diff_4G-fm": "non",
+    "attaques": [
+      {
+        "niveau": "Départ",
+        "nom": "amnesie",
+        "puissance": "-",
+        "precision": "-",
+        "pp": "20"
+      },
+      {
+        "niveau": "Départ",
+        "nom": "coup d'boule",
+        "puissance": "70",
+        "precision": "100",
+        "pp": "15"
+      },
+      {
+        "niveau": "Départ",
+        "nom": "repos",
+        "puissance": "-",
+        "precision": "-",
+        "pp": "10"
+      },
+      {
+        "niveau": "N.35",
+        "nom": "plaquage",
+        "puissance": "85",
+        "precision": "100",
+        "pp": "15"
+      },
+      {
+        "niveau": "N.41",
+        "nom": "armure",
+        "puissance": "-",
+        "precision": "-",
+        "pp": "30"
+      },
+      {
+        "niveau": "N.48",
+        "nom": "damocles",
+        "puissance": "100",
+        "precision": "100",
+        "pp": "15"
+      },
+      {
+        "niveau": "N.56",
+        "nom": "ultralaser",
+        "puissance": "150",
+        "precision": "90",
+        "pp": "5"
+      }
+    ]
+  }

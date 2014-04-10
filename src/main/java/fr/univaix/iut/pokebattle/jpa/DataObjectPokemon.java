@@ -24,31 +24,9 @@ public class DataObjectPokemon {
     public DataObjectPokemon() {
     }
 
-    // Message à Vincent : c'est quoi ce constucteur de dingue tu peux pas faire plus cours ?
-    // Pour enlever l'erreur checkstyle il faut que tu fasse un constructeur avec au maximum
-    // 7 paramètres. Merci d'avance
-
-    public DataObjectPokemon(String nom, String espece, float taille, float poids,
-                            float fmratio, String effortval,
-                            String type1, String type2, int expval, int expmax,
-                            int captureval, String capspe1,
-                            String capspe2, String couleur, int forme,
+    public DataObjectPokemon(String nom,
                             DataObjectAttack[] attaques) {
         this.nom = nom;
-        this.espece = espece;
-        this.taille = taille;
-        this.poids = poids;
-        this.fmratio = fmratio;
-        this.effortval = effortval;
-        this.type1 = type1;
-        this.type2 = type2;
-        this.expval = expval;
-        this.expmax = expmax;
-        this.captureval = captureval;
-        this.capspe1 = capspe1;
-        this.capspe2 = capspe2;
-        this.couleur = couleur;
-        this.forme = forme;
         this.attaques = attaques;
     }
 
