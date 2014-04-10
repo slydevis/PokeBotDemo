@@ -100,7 +100,7 @@ public class PokeBotTest {
     }
     
     @Test
-    public void unknwonAtk() throws TwitterException {
+    public void testunknwonAtk() throws TwitterException {
     	assertEquals("@slydevis ZzZz...Fleeex?", pokeBot.ask(new Tweet
     			("slydevis", "@Pikachu #attack @bulbizarre")));
     }
