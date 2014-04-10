@@ -6,7 +6,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class OwnAskPkmnAtkCell implements SmartCell {
 
     private Pokemon poke;
-
+    private static String dresscible;
 	public String decode(Tweet question) {
 		boolean hashA = false;
 		boolean aro = false;
@@ -20,7 +20,7 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 		String att = ""; //Variable qui doit contenir #attack
 		String nomatt = ""; //Nom de l'attaque
 		String cible = ""; //La cible
-		String dresscible = ""; //Nom du dresseur de la cible
+		dresscible = ""; //Nom du dresseur de la cible
 		for (int i = 0; i < text.length(); ++i) {
 
 			if (text.charAt(i) == '#') {
@@ -49,7 +49,7 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 			if (aro && nbA == 1) {
 				cible += text.charAt(i);
 			}
-			
+
 			if (aro && nbA > 1) {
 				dresscible += text.charAt(i);
 			}
@@ -58,7 +58,7 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 		if (nomatt.isEmpty()) {
 			return '@' + question.getScreenName() + " ZzZz...Fleeex?";
 		}
-		
+
 		if (!dresscible.isEmpty()) {
 			return (cible + ' ' + att + ' ' + nomatt + '!' + ' ' + "/cc" + ' ' + dresscible
 					+ ' ' + '@' + question.getScreenName());
@@ -68,6 +68,10 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 				+ question.getScreenName());
 
 	}
+
+    public static String getDresscible() {
+        return dresscible;
+    }
 
 	public String ask(Tweet question) {
         poke = PokeAskOwnerCell.recupInfo(question.getText());
