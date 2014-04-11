@@ -1,6 +1,9 @@
 package fr.univaix.iut.pokebattle.jpa;
 
 import fr.univaix.iut.pokebattle.smartcell.PokeKOCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeTrollCell;
+import fr.univaix.iut.pokebattle.smartcell.SmartCell;
+import fr.univaix.iut.pokebattle.twitter.TwitterBot;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -92,7 +95,68 @@ public class PokemonTest {
     @Test
     public void testEquals() throws Exception {
         Pokemon pikachu = new Pokemon("Pikachu");
+        Pokemon pokemon1 = new Pokemon("Pikachu1");
+        pikachu.setAttack(10);
+        pokemon1.setAttack(15);
         Pokemon ronflaix = new Pokemon("Ronflaix");
+        PokeTrollCell pokeTrollCell = new PokeTrollCell();
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        pokemon1.setAttackSpecial(15);
+        pikachu.setAttackSpecial(10);
+        pokemon1.setAttack(10);
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        pikachu.setAttackSpecial(15);
+        pikachu.setBaseHP(15);
+        pokemon1.setBaseHP(20);
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        pikachu.setBaseHP(20);
+        pikachu.setDefense(10);
+        pokemon1.setDefense(20);
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        pikachu.setDefense(20);
+        pikachu.setDefenseSpecial(10);
+        pokemon1.setDefenseSpecial(20);
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        pikachu.setDefenseSpecial(20);
+        pikachu.setSpeed(10);
+        pokemon1.setSpeed(20);
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        pikachu.setSpeed(20);
+        pikachu.setType1(Pokemon.Type.ELECTRIC);
+        pokemon1.setType1(Pokemon.Type.NORMAL);
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        pikachu.setType1(Pokemon.Type.NORMAL);
+        pokemon1.setType2(Pokemon.Type.NORMAL);
+        pikachu.setType2(Pokemon.Type.ELECTRIC);
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        pokemon1.setEleveur("Tuto");
+        pikachu.setEleveur("Toti");
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        pikachu.setEleveur("Tuto");
+
+        assertEquals(false, pikachu.equals(pokemon1));
+
+        assertEquals(false, ronflaix.equals(pikachu));
+        assertEquals(true, pikachu.equals(pikachu));
+        assertEquals(false, pokemon.equals(pokeTrollCell));
         assertEquals(false, pokemon.equals(pikachu));
         assertEquals(true, pokemon.equals(ronflaix));
     }

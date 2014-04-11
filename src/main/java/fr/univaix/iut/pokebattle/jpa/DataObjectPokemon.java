@@ -24,12 +24,6 @@ public class DataObjectPokemon {
     public DataObjectPokemon() {
     }
 
-    public DataObjectPokemon(String nom,
-                            DataObjectAttack[] attaques) {
-        this.nom = nom;
-        this.attaques = attaques;
-    }
-
     public String getNom() {
         return nom;
     }

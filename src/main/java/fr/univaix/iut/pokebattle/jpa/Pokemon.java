@@ -190,34 +190,19 @@ public class Pokemon {
         if (speed != pokemon.speed) {
         	return false;
         }
-        if (name != null ? !name.equals(pokemon.name) : pokemon.name != null) {
-        	return false;
-        }
         if (type1 != pokemon.type1) {
-        	return false;
+            return false;
         }
         if (type2 != pokemon.type2) {
-        	return false;
+            return false;
         }
         if (eleveur != pokemon.eleveur) {
             return false;
         }
+        if (name != null ? !name.equals(pokemon.name) : pokemon.name != null) {
+        	return false;
+        }
         return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (type1 != null ? type1.hashCode() : 0);
-        result = 31 * result + (type2 != null ? type2.hashCode() : 0);
-        result = 31 * result + baseHP;
-        result = 31 * result + attack;
-        result = 31 * result + defense;
-        result = 31 * result + attackSpecial;
-        result = 31 * result + defenseSpecial;
-        result = 31 * result + speed;
-        result = result + (eleveur != null ? eleveur.hashCode() : 0);
-        return result;
     }
 
     @Override
