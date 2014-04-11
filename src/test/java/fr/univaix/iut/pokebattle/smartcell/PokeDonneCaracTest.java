@@ -8,7 +8,6 @@ import javax.persistence.Persistence;
 
 import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
-import fr.univaix.iut.pokebattle.jpa.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 import org.dbunit.database.DatabaseConnection;
@@ -32,8 +31,8 @@ private static EntityManager entityManager;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
 
-    PokeDonneCarac cell = new PokeDonneCarac();
-    
+    private PokeDonneCarac cell = new PokeDonneCarac();
+
     @BeforeClass
     public static void initTestFixture() throws Exception {
 
@@ -66,16 +65,16 @@ private static EntityManager entityManager;
 
     @Test
     public void testLevel() {
-        assertEquals("@huyvin #level=1", cell.ask(new Tweet("huyvin","@Rattata #stat #level ?")));
+        assertEquals("@huyvin #level=1", cell.ask(new Tweet("huyvin", "@Rattata #stat #level ?")));
     }
 
     @Test
     public void testXp() {
-        assertEquals("@huyvin #XP=0", cell.ask(new Tweet("huyvin","@Rattata #stat #XP ?")));
+        assertEquals("@huyvin #XP=0", cell.ask(new Tweet("huyvin", "@Rattata #stat #XP ?")));
     }
 
     @Test
     public void testPv() {
-        assertEquals("@huyvin #PV=0", cell.ask(new Tweet("huyvin","@Rattata #stat #PV ?")));
+        assertEquals("@huyvin #PV=0", cell.ask(new Tweet("huyvin", "@Rattata #stat #PV ?")));
     }
 }

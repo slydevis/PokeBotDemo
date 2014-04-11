@@ -2,7 +2,6 @@ package fr.univaix.iut.pokebattle.smartcell;
 
 import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
-import fr.univaix.iut.pokebattle.jpa.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
@@ -29,7 +28,7 @@ public class PokeAskOwnerCellTest {
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
 
-    PokeAskOwnerCell cell = new PokeAskOwnerCell();
+    private PokeAskOwnerCell cell = new PokeAskOwnerCell();
 
     @BeforeClass
     public static void initTestFixture() throws Exception {

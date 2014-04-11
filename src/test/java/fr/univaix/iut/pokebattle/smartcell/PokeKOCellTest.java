@@ -60,6 +60,14 @@ public class PokeKOCellTest {
     }
 
     @Test
+    public void testBadAsk() throws Exception {
+        PokeKOCell cell = new PokeKOCell();
+        OwnAskPkmnAtkCell att = new OwnAskPkmnAtkCell();
+        assertEquals("@Ronflaix #attack #charge! /cc @nedseb @slydevis", att.ask(new Tweet("slydevis", "@Pikachu #attack #charge @Ronflaix /cc @nedseb")));
+        assertEquals(null, cell.ask(new Tweet(null, "@Pikachu -35pv /cc @slydevis")));
+    }
+
+    @Test
     public void testKO() throws Exception {
         PokeKOCell cell = new PokeKOCell();
         OwnAskPkmnAtkCell att = new OwnAskPkmnAtkCell();
@@ -81,5 +89,19 @@ public class PokeKOCellTest {
         OwnAskPkmnAtkCell att = new OwnAskPkmnAtkCell();
         assertEquals("@null is my owner", att.ask(new Tweet("slydevis", "@Rattata #attack #charge @Ronflaix /cc @nedseb")));
         assertEquals(null, cell.ask(new Tweet("viviane", "@Rattata -25pv /cc @slydevis")));
+    }
+
+    @Test
+    public void testBadOwner() {
+        PokeKOCell cell = new PokeKOCell();
+        cell.setBadOwner("sslydevis");
+        assertEquals("sslydevis", cell.getBadOwner());
+    }
+
+    @Test
+    public void testJudge() {
+        PokeKOCell cell = new PokeKOCell();
+        cell.setjudge("Moui");
+        assertEquals("Moui", cell.getJudge());
     }
 }

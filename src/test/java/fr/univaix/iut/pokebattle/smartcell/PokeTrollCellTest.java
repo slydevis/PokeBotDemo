@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class PokeTrollCellTest {
 
-    PokeTrollCell cell = new PokeTrollCell();
+    private PokeTrollCell cell = new PokeTrollCell();
     @Test
     public void testAsk() throws Exception {
         assertEquals("@slydevis Trolol http://www.dailymotion.com/video/xtczcf_gandalf-epic-sax-guy_fun",

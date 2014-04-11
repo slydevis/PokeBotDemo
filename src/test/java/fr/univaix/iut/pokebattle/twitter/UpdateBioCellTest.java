@@ -8,7 +8,7 @@ import org.mockito.Mockito;
 import twitter4j.Twitter;
 
 public class UpdateBioCellTest {
-    UpdateBioCell updateBioCell;
+    private UpdateBioCell updateBioCell;
 
     @Test
     public void testUpdate() throws Exception {

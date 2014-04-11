@@ -1,6 +1,5 @@
 package fr.univaix.iut.pokebattle.jpa;
 
-import fr.univaix.iut.pokebattle.smartcell.PokeKOCell;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -10,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class PokemonTest {
 
-    Pokemon pokemon = new Pokemon("Ronflaix");
+    private Pokemon pokemon = new Pokemon("Ronflaix");
 
     @Test
     public void testName() throws Exception {
