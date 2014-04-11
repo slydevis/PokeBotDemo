@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import twitter4j.Twitter;
 
+import static org.junit.Assert.assertEquals;
+
 public class UpdateBioCellTest {
     UpdateBioCell updateBioCell;
 
@@ -21,5 +23,13 @@ public class UpdateBioCellTest {
         updateBioCell = UpdateBioCell.getInstance();
         updateBioCell.update(poke);
         Mockito.verify(twitter).updateProfile("Ronflaix", "", "", "#pokebattle - #pokemon - Owner: @slydevis - Level: 100");
+    }
+
+    @Test
+    public void testGetTwitter() throws Exception {
+        Twitter twitter = Mockito.mock(Twitter.class);
+        PokeBot bot = new PokeBot();
+        bot.setTwitter(twitter);
+        assertEquals(twitter.toString(), UpdateBioCell.getInstance().getTwitter().toString());
     }
 }
