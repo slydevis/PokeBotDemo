@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -39,7 +41,7 @@ public class PokemonMain {
         return props;
     }
 
-    public static void go(String args) throws URISyntaxException {
+    public static void main(String args) throws URISyntaxException, IOException {
         try {
             Map<String, String> props = createConfigurationMap();
 

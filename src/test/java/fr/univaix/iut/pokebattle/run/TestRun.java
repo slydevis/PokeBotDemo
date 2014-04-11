@@ -24,21 +24,10 @@ public class TestRun {
 		BotRunner.runBot(boot, "testCredentials.properties");
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void testRun2() throws TUSEException, IOException {
 		PokeBot boot = new PokeBot();
-		BotRunner.runBot(boot, "testCredentials.properties");
-	}
-
-	@Test(expected = Exception.class)
-	public void testRun3() throws TUSEException, IOException {
-		PokeBot boot = new PokeBot();
-		BotRunner.runBot(boot, "FichierInexistant.txt");
-	}
-
-	@Test(expected = Exception.class)
-	public void testnoPkmnrun() throws TUSEException, IOException {
-		BotRunner.runBot(null, "testCredentials.properties");
+		BotRunner.runBot(boot, "FichierInexistant.xml");
 	}
 
 	@Test

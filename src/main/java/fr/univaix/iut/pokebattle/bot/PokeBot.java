@@ -24,7 +24,6 @@ public class PokeBot implements Bot {
             new CatchPokeWithoutOwner(),
             new LibPokeCell(),
             new PokeKOCell(),
-            new PokemonCriesCell(),
     };
 
     /**
@@ -41,7 +40,7 @@ public class PokeBot implements Bot {
                 return answer;
             }
         }
-        return null;
+        return "@" + question.getScreenName() + " RON-FLEEEX";
     }
 
     public void setTwitter(Twitter twitter) {

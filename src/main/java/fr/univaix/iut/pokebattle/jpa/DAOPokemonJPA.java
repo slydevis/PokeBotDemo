@@ -25,15 +25,11 @@ public class DAOPokemonJPA implements DAOPokemon {
 
     @Override
     public boolean delete(Pokemon obj) {
-        try {
             EntityTransaction tx = entityManager.getTransaction();
             tx.begin();
             entityManager.remove(obj);
             tx.commit();
             return true;
-        } catch (Exception e) {
-            return false;
-        }
     }
 
     @Override
@@ -58,14 +54,10 @@ public class DAOPokemonJPA implements DAOPokemon {
 
     @Override
     public boolean update(Pokemon obj) {
-        try {
             EntityTransaction tx = entityManager.getTransaction();
             tx.begin();
             entityManager.merge(obj);
             tx.commit();
             return true;
-        } catch (Exception e) {
-            return false;
-        }
     }
 }
