@@ -39,7 +39,7 @@ public class PokemonMain {
         return props;
     }
 
-    public static void main(String[] args) throws URISyntaxException {
+    public static void go(String args) throws URISyntaxException {
         try {
             Map<String, String> props = createConfigurationMap();
 

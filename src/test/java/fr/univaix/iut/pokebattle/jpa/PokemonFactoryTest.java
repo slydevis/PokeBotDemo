@@ -21,7 +21,7 @@ public class PokemonFactoryTest {
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
 
-    PokemonFactory pf = new PokemonFactory();
+    private PokemonFactory pf = new PokemonFactory();
 
     @BeforeClass
     public static void initTestFixture() throws Exception {

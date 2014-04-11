@@ -10,7 +10,7 @@ import twitter4j.Twitter;
 import static org.junit.Assert.assertEquals;
 
 public class UpdateBioCellTest {
-    UpdateBioCell updateBioCell;
+    private UpdateBioCell updateBioCell;
 
     @Test
     public void testUpdate() throws Exception {

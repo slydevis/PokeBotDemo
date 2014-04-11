@@ -1,19 +1,13 @@
 package fr.univaix.iut.pokebattle.jpa;
 
-import fr.univaix.iut.pokebattle.smartcell.PokeKOCell;
 import fr.univaix.iut.pokebattle.smartcell.PokeTrollCell;
-import fr.univaix.iut.pokebattle.smartcell.SmartCell;
-import fr.univaix.iut.pokebattle.twitter.TwitterBot;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by guillaume on 10/04/14.
- */
 public class PokemonTest {
 
-    Pokemon pokemon = new Pokemon("Ronflaix");
+    private Pokemon pokemon = new Pokemon("Ronflaix");
 
     @Test
     public void testName() throws Exception {

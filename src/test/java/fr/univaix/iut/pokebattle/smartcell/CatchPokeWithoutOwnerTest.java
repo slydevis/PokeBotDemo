@@ -26,16 +26,16 @@ import java.sql.Connection;
 
 
 public class CatchPokeWithoutOwnerTest {
-	
+
 	private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
-    Twitter twitter = Mockito.mock(Twitter.class);
+    private Twitter twitter = Mockito.mock(Twitter.class);
     private static DAOPokemon dao;
-	
-	CatchPokeWithoutOwner cell = new CatchPokeWithoutOwner();
-	
+
+	private CatchPokeWithoutOwner cell = new CatchPokeWithoutOwner();
+
 	@BeforeClass
     public static void initTestFixture() throws Exception {
 
@@ -72,7 +72,7 @@ public class CatchPokeWithoutOwnerTest {
 	public void testCatchPokeWithoutOwner() throws TwitterException {
 		assertEquals("@huyvin24 @huyvin24 is my owner", cell.ask(new Tweet("huyvin24", "@Rattata Pokeball!")));
 	}
-	
+
 	@Test
 	public void testCatchPokeWithOwner() throws TwitterException {
 		assertEquals("@huyvin24 @slydevis is my owner", cell.ask(new Tweet("huyvin24", "@Pikachu Pokeball!")));
