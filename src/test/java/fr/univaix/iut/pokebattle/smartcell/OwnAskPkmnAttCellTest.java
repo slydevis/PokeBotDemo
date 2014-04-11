@@ -23,7 +23,7 @@ import java.sql.Connection;
 
 public class OwnAskPkmnAttCellTest {
 
-	OwnAskPkmnAtkCell cell = new OwnAskPkmnAtkCell();
+	private OwnAskPkmnAtkCell cell = new OwnAskPkmnAtkCell();
 
 private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
@@ -73,11 +73,11 @@ private static EntityManager entityManager;
 		assertEquals(null,
 				cell.ask(new Tweet("nedseb", "attack")));
 	}
-	
+
 	@Test
 	public void ownerAskAtkDressTest() {
 		assertEquals("@bulbizarre #attack #plaquage! /cc @gantben @slydevis",
 				cell.ask(new Tweet("slydevis", "@Pikachu #attack #plaquage @bulbizarre /cc @gantben")));
 	}
-	
+
 }

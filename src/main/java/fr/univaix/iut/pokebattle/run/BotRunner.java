@@ -9,8 +9,18 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class BotRunner {
-    private BotRunner() {
 
+	private static BotRunner instance = null;
+
+    private BotRunner() {
+    }
+
+    public static BotRunner getInstance() {
+        if (instance != null) {
+        	return instance;
+        } else {
+        	return new BotRunner();
+        }
     }
 
     public static void runBot(Bot bot, String credentialsFileName) throws TUSEException {

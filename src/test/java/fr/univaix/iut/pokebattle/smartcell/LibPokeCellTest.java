@@ -31,10 +31,10 @@ public class LibPokeCellTest {
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
-    Twitter twitter = Mockito.mock(Twitter.class);
+    private Twitter twitter = Mockito.mock(Twitter.class);
     private UpdateBioCell updateBioCell = UpdateBioCell.getInstance();
-    LibPokeCell cell = new LibPokeCell();
-    PokeAskOwnerCell cell2 = new PokeAskOwnerCell();
+    private LibPokeCell cell = new LibPokeCell();
+    private PokeAskOwnerCell cell2 = new PokeAskOwnerCell();
 
     @BeforeClass
     public static void initTestFixture() throws Exception {

@@ -29,9 +29,9 @@ import static org.junit.Assert.assertEquals;
  * PokeBot is using smartcell properly.
  */
 public class PokeBotTest {
-    PokeBot pokeBot = new PokeBot();
+    private PokeBot pokeBot = new PokeBot();
 
-    Twitter twitter = Mockito.mock(Twitter.class);
+    private Twitter twitter = Mockito.mock(Twitter.class);
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
@@ -80,37 +80,36 @@ public class PokeBotTest {
     public void testOwner() throws TwitterException {
     	assertEquals("@slydevis No owner", pokeBot.ask(new Tweet("slydevis", "@Rattata Owner?")));
     }
-    
-    
+
+
     @Test
     public void testBadAtk() throws TwitterException {
     	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
     }
-    
+
     @Test
     public void testAtk() throws TwitterException {
-    	assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis", pokeBot.ask(new Tweet
-    			("slydevis", "@Pikachu #attack #plaquage @bulbizarre")));
+    	assertEquals("@bulbizarre #attack #plaquage! /cc @slydevis", pokeBot.ask(new Tweet(
+    			"slydevis", "@Pikachu #attack #plaquage @bulbizarre")));
     }
-    
+
     @Test
     public void testbadOwnerAtk() throws TwitterException {
-    	assertEquals("@slydevis is my owner", pokeBot.ask(new Tweet
-    			("nedseb", "@Pikachu #attack #plaquage @bulbizarre")));
+    	assertEquals("@slydevis is my owner", pokeBot.ask(new Tweet(
+    			"nedseb", "@Pikachu #attack #plaquage @bulbizarre")));
     }
-    
+
     @Test
     public void testunknwonAtk() throws TwitterException {
-    	assertEquals("@slydevis ZzZz...Fleeex?", pokeBot.ask(new Tweet
-    			("slydevis", "@Pikachu #attack @bulbizarre")));
+    	assertEquals("@slydevis ZzZz...Fleeex?", pokeBot.ask(new Tweet(
+    			"slydevis", "@Pikachu #attack @bulbizarre")));
     }
-    
+
     @Test
     public void testOwnerEnemyAtk() throws TwitterException {
-    	assertEquals("@bulbizarre #attack #plaquage! /cc @gantben @slydevis", pokeBot.ask(new Tweet
-    			("slydevis", "@Pikachu #attack #plaquage @bulbizarre /cc @gantben")));
+    	assertEquals("@bulbizarre #attack #plaquage! /cc @gantben @slydevis", pokeBot.ask(new Tweet(
+    			"slydevis", "@Pikachu #attack #plaquage @bulbizarre /cc @gantben")));
     }
-    
 
     @Test
     public void testCatchPoke() throws TwitterException {

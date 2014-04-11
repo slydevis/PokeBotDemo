@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class PokemonCriesCellTest {
 
-    PokemonCriesCell cell = new PokemonCriesCell();
+    private PokemonCriesCell cell = new PokemonCriesCell();
 
     @Test
     public void testSalut() {

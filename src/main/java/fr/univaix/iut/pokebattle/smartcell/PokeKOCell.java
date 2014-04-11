@@ -18,6 +18,14 @@ public class PokeKOCell implements SmartCell {
         this.judge = judge;
     }
 
+    public String getBadOwner() {
+    	return badOwner;
+    }
+
+    public String getJudge() {
+    	return judge;
+    }
+
     public int decodeLife(String str) {
         Scanner in = new Scanner(str).useDelimiter("[^0-9]+");
         int integer = in.nextInt();
