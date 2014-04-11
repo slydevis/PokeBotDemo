@@ -6,7 +6,8 @@ import static org.junit.Assert.assertEquals;
 
 public class DataObjectAttackTest {
 
-    DataObjectAttack doa = new DataObjectAttack("1", "Troll", "999", "100", "69");
+    private DataObjectAttack doa = new DataObjectAttack("1", "Troll", "999", "100", "69");
+
     @Test
     public void testPuissance() throws Exception {
         doa.setPuissance("2");

@@ -77,4 +77,29 @@ private static EntityManager entityManager;
     public void testPv() {
         assertEquals("@huyvin #PV=0", cell.ask(new Tweet("huyvin", "@Rattata #stat #PV ?")));
     }
+
+    @Test
+    public void testAttack() {
+        assertEquals("@huyvin #Attack=56", cell.ask(new Tweet("huyvin", "@Rattata #stat #Attack ?")));
+    }
+
+    @Test
+    public void testDefense() {
+        assertEquals("@huyvin #Defense=35", cell.ask(new Tweet("huyvin", "@Rattata #stat #Defense ?")));
+    }
+
+    @Test
+    public void testAtkSpe() {
+        assertEquals("@huyvin #Atk.Spe=25", cell.ask(new Tweet("huyvin", "@Rattata #stat #Atk.Spe ?")));
+    }
+
+    @Test
+    public void testDefSpe() {
+        assertEquals("@huyvin #Def.Spe=35", cell.ask(new Tweet("huyvin", "@Rattata #stat #Def.Spe ?")));
+    }
+
+    @Test
+    public void testSpeed() {
+        assertEquals("@huyvin #Speed=72", cell.ask(new Tweet("huyvin", "@Rattata #stat #Speed ?")));
+    }
 }

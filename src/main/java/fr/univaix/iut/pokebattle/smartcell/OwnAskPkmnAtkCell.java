@@ -1,5 +1,14 @@
 package fr.univaix.iut.pokebattle.smartcell;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+import scala.App;
+
+import com.google.gson.Gson;
+
+import fr.univaix.iut.pokebattle.jpa.DataObjectAttack;
+import fr.univaix.iut.pokebattle.jpa.DataObjectPokemon;
 import fr.univaix.iut.pokebattle.jpa.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
@@ -55,7 +64,28 @@ public class OwnAskPkmnAtkCell implements SmartCell {
 			}
 		}
 
-		if (nomatt.isEmpty()) {
+		Gson gson = new Gson();
+        BufferedReader br = new BufferedReader(
+                              new InputStreamReader(App.class.getClassLoader().getResourceAsStream(
+                            		  "ronflex.json")));
+        DataObjectPokemon ronflex = gson.fromJson(br, DataObjectPokemon.class);
+        DataObjectAttack[] listAttack = ronflex.getAttaques();
+        String[] listesAttacks = new String[listAttack.length];
+
+        for (int i = 0; i < listAttack.length; i++) {
+        	listesAttacks[i] = '#' + listAttack[i].getNom();
+        }
+
+
+        boolean valide = false;
+        for (int i = 0; i < listAttack.length; i++) {
+        	if (listesAttacks[i].equals(nomatt)) {
+        		valide = true;
+        		break;
+        	}
+        }
+
+		if (!valide) {
 			return '@' + question.getScreenName() + " ZzZz...Fleeex?";
 		}
 

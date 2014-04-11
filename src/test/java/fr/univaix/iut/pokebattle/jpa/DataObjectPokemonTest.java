@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class DataObjectPokemonTest {
 
-    DataObjectPokemon daop = new DataObjectPokemon();
+    private DataObjectPokemon daop = new DataObjectPokemon();
 
     @Test
     public void testNom() throws Exception {
@@ -101,8 +101,8 @@ public class DataObjectPokemonTest {
     @Test
     public void testAttaques() throws Exception {
         DataObjectAttack [] monTableau = new DataObjectAttack[2];
-        monTableau[0] = new DataObjectAttack("Yolo", "100","75","45","2");
-        monTableau[1] = new DataObjectAttack("?", "100","75","45","2");
+        monTableau[0] = new DataObjectAttack("Yolo", "100", "75", "45", "2");
+        monTableau[1] = new DataObjectAttack("?", "100", "75", "45", "2");
         daop.setAttaques(monTableau);
         assertEquals(monTableau.toString(), daop.getAttaques().toString());
     }

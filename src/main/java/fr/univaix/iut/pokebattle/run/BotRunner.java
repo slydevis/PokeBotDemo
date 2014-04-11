@@ -16,21 +16,15 @@ public class BotRunner {
     }
 
     public static BotRunner getInstance() {
-        if (instance != null) {
-        	return instance;
-        } else {
-        	return new BotRunner();
-        }
+        return (instance != null ? instance : new BotRunner());
     }
 
-    public static void runBot(Bot bot, String credentialsFileName) throws TUSEException {
-        try (InputStream inputStream = getResourceAsStream(credentialsFileName)) {
-            Credentials credentials = Credentials.loadCredentials(inputStream);
-            TwitterBot twitterBot = new TwitterBot(bot, credentials);
-            twitterBot.startBot();
-        } catch (IOException e) {
-            throw new TUSEException("Input error on credentials loading", e);
-        }
+    public static void runBot(Bot bot, String credentialsFileName) throws TUSEException, IOException {
+        InputStream inputStream = getResourceAsStream(credentialsFileName);
+	    Credentials credentials = Credentials.loadCredentials(inputStream);
+	    TwitterBot twitterBot = new TwitterBot(bot, credentials);
+	    twitterBot.startBot();
+
     }
 
     static InputStream getResourceAsStream(String fileName) {

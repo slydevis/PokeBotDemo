@@ -69,8 +69,8 @@ public class PokeBotTest {
 
     @Test
     public void testSalut() throws TwitterException {
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("Salut")));
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("This is not a question.")));
+        assertEquals("@null RON-FLEEEX", pokeBot.ask(new Tweet("Salut")));
+        assertEquals("@null RON-FLEEEX", pokeBot.ask(new Tweet("This is not a question.")));
         assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "Salut")));
         assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "This is not a question.")));
 
@@ -124,7 +124,7 @@ public class PokeBotTest {
 
     @Test
     public void testKO() throws TwitterException {
-        assertEquals("@Ronflaix #attack #charge! /cc @nedseb @slydevis", pokeBot.ask(new Tweet("slydevis", "@Pikachu #attack #charge @Ronflaix /cc @nedseb  ")));
+        assertEquals("@Ronflaix #attack #damocles! /cc @nedseb @slydevis", pokeBot.ask(new Tweet("slydevis", "@Pikachu #attack #damocles @Ronflaix /cc @nedseb  ")));
         assertEquals("#KO /cc @viviane @nedseb @slydevis", pokeBot.ask(new Tweet("viviane", "@Pikachu -35pv /cc @slydevis")));
     }
 }

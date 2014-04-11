@@ -63,7 +63,7 @@ public class PokeKOCellTest {
     public void testBadAsk() throws Exception {
         PokeKOCell cell = new PokeKOCell();
         OwnAskPkmnAtkCell att = new OwnAskPkmnAtkCell();
-        assertEquals("@Ronflaix #attack #charge! /cc @nedseb @slydevis", att.ask(new Tweet("slydevis", "@Pikachu #attack #charge @Ronflaix /cc @nedseb")));
+        assertEquals("@Ronflaix #attack #damocles! /cc @nedseb @slydevis", att.ask(new Tweet("slydevis", "@Pikachu #attack #damocles @Ronflaix /cc @nedseb")));
         assertEquals(null, cell.ask(new Tweet(null, "@Pikachu -35pv /cc @slydevis")));
     }
 
@@ -71,7 +71,7 @@ public class PokeKOCellTest {
     public void testKO() throws Exception {
         PokeKOCell cell = new PokeKOCell();
         OwnAskPkmnAtkCell att = new OwnAskPkmnAtkCell();
-        assertEquals("@Ronflaix #attack #charge! /cc @nedseb @slydevis", att.ask(new Tweet("slydevis", "@Pikachu #attack #charge @Ronflaix /cc @nedseb")));
+        assertEquals("@Ronflaix #attack #damocles! /cc @nedseb @slydevis", att.ask(new Tweet("slydevis", "@Pikachu #attack #damocles @Ronflaix /cc @nedseb")));
         assertEquals("#KO /cc @viviane @nedseb @slydevis", cell.ask(new Tweet("viviane", "@Pikachu -35pv /cc @slydevis")));
     }
 
@@ -79,7 +79,7 @@ public class PokeKOCellTest {
     public void testNoKo() {
         PokeKOCell cell = new PokeKOCell();
         OwnAskPkmnAtkCell att = new OwnAskPkmnAtkCell();
-        assertEquals("@Pikachu #attack #charge! /cc @slydevis @nedseb", att.ask(new Tweet("nedseb", "@Ronflaix #attack #charge @Pikachu /cc @slydevis")));
+        assertEquals("@Pikachu #attack #damocles! /cc @slydevis @nedseb", att.ask(new Tweet("nedseb", "@Ronflaix #attack #damocles @Pikachu /cc @slydevis")));
         assertEquals(null, cell.ask(new Tweet("viviane", "@Ronflaix -25pv /cc @slydevis")));
     }
 
