@@ -22,7 +22,8 @@ public class AskStatAttackCell implements SmartCell {
 
 			Gson gson = new Gson();
 	        BufferedReader br = new BufferedReader(
-	                              new InputStreamReader(App.class.getClassLoader().getResourceAsStream("ronflex.json")));
+	                              new InputStreamReader(App.class.getClassLoader().getResourceAsStream(
+	                            		  "ronflex.json")));
 	        DataObjectPokemon ronflex = gson.fromJson(br, DataObjectPokemon.class);
 	        DataObjectAttack[] listAttack = ronflex.getAttaques();
 

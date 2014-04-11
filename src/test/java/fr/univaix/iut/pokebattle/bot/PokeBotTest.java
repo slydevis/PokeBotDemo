@@ -124,7 +124,7 @@ public class PokeBotTest {
 
     @Test
     public void testKO() throws TwitterException {
-        assertEquals("@Ronflaix #attack #charge! /cc @nedseb @slydevis", pokeBot.ask(new Tweet("slydevis", "@Pikachu #attack #charge @Ronflaix /cc @nedseb  ")));
+        assertEquals("@Ronflaix #attack #damocles! /cc @nedseb @slydevis", pokeBot.ask(new Tweet("slydevis", "@Pikachu #attack #damocles @Ronflaix /cc @nedseb  ")));
         assertEquals("#KO /cc @viviane @nedseb @slydevis", pokeBot.ask(new Tweet("viviane", "@Pikachu -35pv /cc @slydevis")));
     }
 }
