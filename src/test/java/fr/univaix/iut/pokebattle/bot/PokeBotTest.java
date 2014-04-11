@@ -69,8 +69,8 @@ public class PokeBotTest {
 
     @Test
     public void testSalut() throws TwitterException {
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("Salut")));
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("This is not a question.")));
+        assertEquals("@null RON-FLEEEX", pokeBot.ask(new Tweet("Salut")));
+        assertEquals("@null RON-FLEEEX", pokeBot.ask(new Tweet("This is not a question.")));
         assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "Salut")));
         assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "This is not a question.")));
 

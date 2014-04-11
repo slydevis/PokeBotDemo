@@ -64,8 +64,9 @@ public class PokemonTest {
 
     @Test
     public void testEleveur() throws Exception {
+    	String owner = "nedseb";
         pokemon.setEleveur("nedseb");
-        assertEquals("nedseb", pokemon.getEleveur());
+        assertEquals(owner, pokemon.getEleveur());
     }
 
     @Test
@@ -158,5 +159,21 @@ public class PokemonTest {
     @Test
     public void testToString() throws Exception {
         assertEquals("Pokemon{name='Ronflaix', types1=null, types2=null, baseHP=0, attack=0, defense=0, attackSpecial=0, defenseSpecial=0, speed=0, eleveur=null}", pokemon.toString());
+    }
+
+    @Test
+    public void testEleveur2() throws Exception {
+    	Pokemon pikachu = new Pokemon("Pikachu");
+    	Pokemon pichu = new Pokemon("Pikachu");
+    	pikachu.setEleveur("nedseb");
+    	pichu.setEleveur("gantben");
+        assertEquals(false, pikachu.equals(pichu));
+    }
+
+    @Test
+    public void testBadNoms() throws Exception {
+    	Pokemon pikachu = new Pokemon("Pikachu");
+    	Pokemon pichu = new Pokemon("Pichu");
+        assertEquals(false, pikachu.equals(pichu));
     }
 }
