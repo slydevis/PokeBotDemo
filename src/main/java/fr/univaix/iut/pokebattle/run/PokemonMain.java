@@ -41,7 +41,7 @@ public class PokemonMain {
         return props;
     }
 
-    public static void main(String args) throws URISyntaxException, IOException {
+    public static void main(String args[]) throws URISyntaxException, IOException {
         try {
             Map<String, String> props = createConfigurationMap();
 
